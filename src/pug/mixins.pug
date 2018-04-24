@@ -1,0 +1,64 @@
+
+//- name - ключ, count - количество дубликатов (например, чтобы использовать одно и тоже значение в label  и input)
+-
+	function generateID(name, count) {
+		var duplicates = count || 1; 
+		var val = IDcount; 
+		var key = name || 'uid'; 
+		if( IDs[key] == undefined ){
+			IDs[key] = {}; 
+			IDs[key]['val'] = val; 
+			IDs[key]['out'] = 0;
+		}else{ 
+			IDs[key]['out']++; 
+		} 
+		IDcount++; 
+		val = key+'-' + IDs[key]['val'] + '-' + ( ~~(IDs[key]['out']/duplicates) ); 
+		return val;
+	}
+
+
+//-shuffle array
+-
+	function shuffle(a) {
+	    for (let i = a.length - 1; i > 0; i--) {
+	        const j = Math.floor(Math.random() * (i + 1));
+	        [a[i], a[j]] = [a[j], a[i]];
+	    }
+	    return a;
+	}
+
+-
+	function pDate() {
+	    return new Date().getTime();
+	}	
+
+mixin head(data)
+	head
+		title ГРУППА ЕВРОУПА
+		link(rel="stylesheet", href="../css/style.css?ver=" + pDate())
+		link(rel="shortcut icon", type="image/png", href="images/favicon.png")
+		meta(charset='utf-8')
+		meta(name="viewport", content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes")
+		meta(name="mobile-web-app-capable", content="yes")
+		meta(name="apple-mobile-web-app-capable", content="yes")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		if data
+			+#{data}
+
+
+mixin retina(opts)
+	- var name = path.parse(opts.src).name
+	- var ext = path.parse(opts.src).ext.substr(1)
+	- var alt = opts.alt ? opts.alt : name;
+	- var className = opts.class;
+	- var data = opts.data ? opts.data : '';
+	- var imgFolder = '../images/';
+	- var className = opts.class;
+	picture(class=className)
+		source(
+			srcset=`${imgFolder}${name}.${ext},
+					${imgFolder}${name}@2x.${ext} 2x,
+					${imgFolder}${name}@3x.${ext} 3x`, 
+			type=`image/${ext}`)
+		img(src=`${imgFolder}${name}.${ext}` alt=alt )&attributes(data)

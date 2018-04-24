@@ -1,0 +1,13 @@
+include ./mixins.pug
+doctype html
+html(lang="ru")
+	+head()
+	body.page
+		.page__body
+			header.page__header
+				.page__wrapper header
+			main.page__main
+				.page__wrapper main
+			footer.page__footer
+				.page__wrapper footer
+			include ./partials/scripts.pug

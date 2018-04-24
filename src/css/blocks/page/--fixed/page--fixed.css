@@ -1,0 +1,13 @@
+
+.page--fixed{
+	@media (--pre-medium-viewport){
+		
+	}
+	@media (--medium-viewport){
+							
+	}
+	@media (--large-viewport){
+										
+	}
+}
+

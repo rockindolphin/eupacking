@@ -1,0 +1,52 @@
+
+.page{
+	display: flex; /*fix бага ie11 с min-height:100%*/
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: flex-start;
+	background-color: var(--gray_191);
+	overflow-y: scroll;
+	overflow-x: auto;
+	@media (--pre-medium-viewport){
+			
+	}
+	@media (--medium-viewport){
+								
+	}
+	@media (--large-viewport){
+										
+	}	
+}
+
+/*helper*/
+/*
+.page{
+	&::after{
+		content: 'small';
+		position: fixed;
+		z-index: 100;
+		display: inline-block;
+		font-size: 24px;
+		text-transform: uppercase;
+		color: red;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+	}
+	@media (--pre-medium-viewport){
+		&::after{
+			content: 'pre-medium';
+		}				
+	}
+	@media (--medium-viewport){
+		&::after{
+			content: 'medium';
+		}										
+	}
+	@media (--large-viewport){
+		&::after{
+			content: 'large';
+		}											
+	}	
+}
+*/
