@@ -2,5 +2,72 @@
 .page__header{
 	width: 100%;
 	background-color: var(--white);
+	padding-top: 40px;
+	padding-bottom: 30px;	
+	&>.page__wrapper{
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+	& .header__top,
+	& .header__bottom,
+	& .header__left,
+	& .header__right{
+		display: flex;
+		flex-direction: row;
+		align-items: stretch;
+		justify-content: center;		
+	}	
+	& .header__top,
+	& .header__bottom{
+		width: 100%;
+	}
+	& .header__left,
+	& .header__right{
+		flex-grow: 1;
+		max-width: calc(50% - 123px); /* -206/2 - 20 px*/	
+	}	
+	& .header__top::before,
+	& .header__top::after,
+	& .header__left::before,
+	& .header__right::after{
+		content: '';
+		display: block;
+		flex-grow: 1;
+		min-width: 2px;
+		background: linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 100%),
+					linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 100%);
+		background-size: 100% 2px, 2px 50%;
+		background-repeat: no-repeat, no-repeat;
+	}	
+	& .header__top{
+		&::before{
+			background-position: 0 50%, 0 100%; 
+		}
+		&::after{
+			background-position: 0 50%, 100% 100%; 
+		}
+		& .header__logo{
+			margin-left: 22px;
+			margin-right: 22px;
+		}
+	}
+	& .header__bottom{		
+		& .header__logo{
+			padding: 10px 20px;
+		}
+	}
+	& .header__left{
+		&::before{
+			background-position: 0 50%, 0 0; 
+		}
+	}
+	& .header__right{
+		&::after{
+			background-position: 0 50%, 100% 0; 
+		}		
+	}
+
 }
 

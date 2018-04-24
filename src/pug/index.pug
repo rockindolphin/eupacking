@@ -5,9 +5,37 @@ html(lang="ru")
 	body.page
 		.page__body
 			header.page__header
-				.page__wrapper header
+				.page__wrapper
+					.header__top
+						a.header__logo(href='#')
+							img(src='../images/header-logo.png', alt='logo')
+					.header__bottom
+						.header__left
+							ul.nav.header__nav
+								li
+									a(href='#') О Компании
+								li
+									a(href='#') Наши работы
+						a.header__logo(href='#')
+							img(src='images/header-logo-text.png', alt='logo')
+						.header__right
+							ul.nav.header__nav
+								li
+									a(href='#') Возможности
+								li
+									a(href='#') Дизайн-бюро
 			main.page__main
 				.page__wrapper main
 			footer.page__footer
-				.page__wrapper footer
+				.page__wrapper
+					.footer__left
+						ul.nav.footer__nav
+							li
+								a(href='#') Оборудование
+					a.footer__logo(href='#')
+						img(src='images/footer-logo.png', alt='logo')
+					.footer__right
+						ul.nav.footer__nav
+							li
+								a(href='#') Контакты
 			include ./partials/scripts.pug

@@ -1,0 +1,11 @@
+
+.footer__nav{
+	color: var(--white);
+	& li{
+		&:hover,
+		&.current-menu-item{
+			color: var(--green_879);
+		}
+	}
+}
+

@@ -4,9 +4,10 @@
 	flex-direction: column;
 	align-items: stretch;
 	justify-content: flex-start;
-	background-color: var(--gray_191);
+	background-color: var(--white);
 	overflow-y: scroll;
 	overflow-x: auto;
+	min-width: var(--page-min);
 	@media (--pre-medium-viewport){
 			
 	}
@@ -22,31 +23,14 @@
 /*
 .page{
 	&::after{
-		content: 'small';
+		content: '';
+		display: block;
 		position: fixed;
-		z-index: 100;
-		display: inline-block;
-		font-size: 24px;
-		text-transform: uppercase;
-		color: red;
-		top: 50%;
+		width: 1px;
+		height: 100vh;
+		background: red;
 		left: 50%;
-		transform: translateX(-50%) translateY(-50%);
-	}
-	@media (--pre-medium-viewport){
-		&::after{
-			content: 'pre-medium';
-		}				
-	}
-	@media (--medium-viewport){
-		&::after{
-			content: 'medium';
-		}										
-	}
-	@media (--large-viewport){
-		&::after{
-			content: 'large';
-		}											
+		top: 0;
 	}	
 }
 */
