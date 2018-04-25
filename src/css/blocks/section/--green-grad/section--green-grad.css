@@ -1,0 +1,5 @@
+
+.section--green-grad{
+	background: radial-gradient(ellipse at center, var(--green_c6d) 15%, var(--green_5d6) 100%);
+}
+

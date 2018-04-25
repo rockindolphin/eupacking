@@ -1,8 +1,8 @@
 {
 	"images": {
-		"webp": true,
-		"generateSpriteSvg": true,
+		"webp": false,
+		"generateSpriteSvg": false,
 		"generateSpritePng": false,
-		"sizes": [564, 1024, 1280, 1920]
+		"sizes": []
 	}
 }
