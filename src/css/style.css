@@ -14,6 +14,9 @@
 
 	--gray_272: 	#27282d;
 	--green_879: 	#879999;
+	--green_c8d: 	#c8d7d4;
+	--green_c6d: 	#c6d5d2;
+	--green_5d6: 	#5d6463;
 
 	/*Fonts*/
 	--fw-thin: 100;
@@ -40,29 +43,33 @@
 /* FONTS */
 
 @font-face {
-    font-family: CRC55;
-    src: 	url('../fonts/CRC55/CRC55.otf');
+    font-family: Circe;
+    src: 	url('../fonts/Circe/CirceRegular.woff'),
+    		url('../fonts/Circe/CirceRegular.woff2');
     font-style: normal;
     font-weight: var(--fw-normal);
 }
 
 @font-face {
-    font-family: CRC65;
-    src: 	url('../fonts/CRC65/CRC65.otf');
+    font-family: Circe;
     font-style: normal;
-    font-weight: var(--fw-normal);
+    src: 	url('../fonts/Circe/CirceBold.woff'),
+    		url('../fonts/Circe/CirceBold.woff2');
+    font-weight: var(--fw-bold);
 }
 
 @font-face {
-    font-family: CRC75;
-    src: 	url('../fonts/CRC75/CRC75.otf');
+    font-family: Circe;
     font-style: normal;
-    font-weight: var(--fw-normal);
+    src: 	url('../fonts/Circe/CirceExtraBold.woff'),
+    		url('../fonts/Circe/CirceExtraBold.woff2');
+    font-weight: var(--fw-extra-bold);
 }
 
 @font-face {
     font-family: Intro;
-    src: 	url('../fonts/Intro/Intro.otf');
+    src: 	url('../fonts/Intro/IntroRegular.woff'),
+    		url('../fonts/Intro/IntroRegular.woff2');
     font-style: normal;
     font-weight: var(--fw-normal);
 }
@@ -87,7 +94,7 @@ body{
 	min-height: 100%;
 	margin:  0;
 	padding: 0;
-	font-family: CRC55, sans-serif;
+	font-family: Circe, sans-serif;
 	font-size: 16px;
 	line-height: 1.4;
 	color: var(--black);
@@ -154,7 +161,6 @@ h5{
 	}	
 }
 h6{
-	font-size: 14px;
 	@media (--medium-viewport){
 
 	}
@@ -162,8 +168,3 @@ h6{
 
 	}
 }
-
-
-
-
-

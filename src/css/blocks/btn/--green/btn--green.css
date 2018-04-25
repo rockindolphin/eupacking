@@ -1,0 +1,10 @@
+
+.btn--green{
+	text-transform: uppercase;
+	border-color: var(--black);
+	background-color: var(--green_c8d);
+	&:hover{
+		background-color: var(--white);
+	}
+}
+

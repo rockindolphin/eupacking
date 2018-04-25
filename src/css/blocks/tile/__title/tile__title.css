@@ -1,0 +1,6 @@
+
+.tile__title{
+	text-transform: uppercase;
+	font-weight: var(--fw-extra-bold);
+}
+

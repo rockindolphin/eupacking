@@ -1,0 +1,19 @@
+
+.btn{
+  display: inline-block;
+  font-weight: var(--fw-bold);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 2px solid;
+  border-color: transparent;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 10px 20px;
+  transition: background-color var(--anim-dur) ease-out;
+  &:focus{
+  	outline: none;
+  }
+}
+

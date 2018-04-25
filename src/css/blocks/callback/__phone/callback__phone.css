@@ -1,0 +1,9 @@
+
+.callback__phone{
+	color: var(--green_879);
+	font-size: 42px;
+	text-decoration: none;
+	font-weight: var(--fw-extra-bold);
+	margin-right: 35px;
+}
+

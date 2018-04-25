@@ -1,0 +1,11 @@
+
+.section--callback{
+	padding-top: 48px;
+	padding-bottom: 40px;	
+	& .page__wrapper{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+

@@ -1,0 +1,16 @@
+
+.tile__icon{
+	width: 125px;
+	height: 125px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: calc(-1*(125px/2));
+	left: calc(50% - (125px/2));
+	border:  2px solid;
+	border-color: var(--black);
+	background-color: var(--green_c8d);
+	transition: background-color var(--anim-dur) ease-out;
+}
+

@@ -2,8 +2,8 @@
 .page__header{
 	width: 100%;
 	background-color: var(--white);
-	padding-top: 40px;
-	padding-bottom: 30px;	
+	padding-top: 35px;
+	padding-bottom: 20px;	
 	&>.page__wrapper{
 		display: flex;
 		flex-direction: column;
