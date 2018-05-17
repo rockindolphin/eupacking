@@ -1,0 +1,17 @@
+
+.person__text{
+	padding-top: 40px;
+	line-height: 1.7;
+	& .header{
+		font-size: 50px;
+		margin-top: 0;
+		line-height: 1;
+		margin-bottom: 25px;
+	}
+	& .subheader{
+		font-size: 16px;
+		margin-top: 0;
+		text-transform: uppercase;
+	}
+}
+

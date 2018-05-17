@@ -4,26 +4,7 @@ html(lang="ru")
 	+head()
 	body.page
 		.page__body
-			header.page__header
-				.page__wrapper
-					.header__top
-						a.header__logo(href='#')
-							img(src='../images/header-logo.png', alt='logo')
-					.header__bottom
-						.header__left
-							ul.nav.header__nav
-								li
-									a(href='#') О Компании
-								li
-									a(href='#') Наши работы
-						a.header__logo(href='#')
-							img(src='images/header-logo-text.png', alt='logo')
-						.header__right
-							ul.nav.header__nav
-								li
-									a(href='#') Возможности
-								li
-									a(href='#') Дизайн-бюро
+			include ./partials/header.pug
 			main.page__main
 				section.section.section--green-grad
 					.page__wrapper
@@ -94,21 +75,5 @@ html(lang="ru")
 										li адекватная стоимость услуг
 										li оптимизация затрат и снижение рисков, связанных с упаковкой
 										li и просто, с нами удобно работать!
-				section.section.section--callback
-					.page__wrapper
-						a.callback__phone(href="tel:+74965670259") + 7 496 567-02-59
-						span.callback__text или
-						button.btn.btn--green Заказать звонок
-			footer.page__footer
-				.page__wrapper
-					.footer__left
-						ul.nav.footer__nav
-							li
-								a(href='#') Оборудование
-					a.footer__logo(href='#')
-						img(src='images/footer-logo.png', alt='logo')
-					.footer__right
-						ul.nav.footer__nav
-							li
-								a(href='#') Контакты
-			include ./partials/scripts.pug
+				include ./partials/callback.pug
+			include ./partials/footer.pug

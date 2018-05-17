@@ -33,6 +33,8 @@ const gulp = require('gulp'),
 	PO = require('pofile'),
 	each = require('gulp-each'),
 	stringifyObject = require('stringify-object'),
+	sass = require('gulp-sass'),
+	autoprefixer = require('gulp-autoprefixer'),	
 	server = require('gulp-server-livereload');
 
 
@@ -256,6 +258,20 @@ gulp.task('css', function(){
 	);			
 });
 
+gulp.task('utilities', function(){
+	miss.pipe(
+		gulp.src( path.resolve(src, 'css', 'bootstrap_utilities.scss') ),
+		sass(),
+		autoprefixer({
+			browsers: browsers
+		}),    
+		gulp.dest( path.resolve(dist, 'css') ), 
+		(err) => {
+			if (err) return err_log(err);
+		}
+	);			
+});
+
 gulp.task('fonts', function(){
 	fonts( path.resolve(src, 'fonts', '**', '*') );
 });
@@ -313,7 +329,12 @@ gulp.task('default', ['clear_dist', 'server'], () => {
 	gulp.start('css');
 	let css_watcher = chokidar.watch( path.resolve(src, 'css', '**', '*.css'), {ignoreInitial: true} );
 	css_watcher.on('change', () => { gulp.start('css') });	
-	css_watcher.on('add', () => { gulp.start('css') });	
+	css_watcher.on('add', () => { gulp.start('css') });
+
+	gulp.start('utilities');
+	let utilities_watcher = chokidar.watch( path.resolve(src, 'css', '**', '*.scss'), {ignoreInitial: true} );
+	utilities_watcher.on('change', () => { gulp.start('utilities') });	
+	utilities_watcher.on('add', () => { gulp.start('utilities') });		
 
 	gulp.start('fonts');
 	let fonts_watcher = chokidar.watch( path.resolve(src, 'fonts', '**', '*'), {ignoreInitial: true} ); 

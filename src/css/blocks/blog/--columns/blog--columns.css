@@ -1,0 +1,20 @@
+
+.blog--columns{
+	column-count: 2;
+	column-gap: 35px;
+	column-fill: balance;
+	&>*{
+		break-inside: avoid-column;
+		&:first-child{
+			margin-top: 0;
+			position: relative;
+			&::first-letter{
+				font-size: 44px;
+				line-height: 0;
+				font-weight: var(--fw-extra-bold);
+				position: absolute;
+			}
+		}
+	}
+}
+

@@ -1,0 +1,12 @@
+
+.person__pic{
+	flex-shrink: 0;
+	margin-right: 75px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-start;
+	& img{
+		display: block;
+	}
+}
+
