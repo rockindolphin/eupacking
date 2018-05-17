@@ -20,13 +20,43 @@
 				src = $(parent).find('img').get(0).currentSrc || $(parent).find('img').get(0).src;
 				parent =  $(parent).parent();
 			}
-			$(parent).css({
-				'background-image': `url(${src})`
-			});
+			if( $(this).data('combine') ){
+				$(parent)
+				.css({
+					'background': 'url('+src+'), '+ $(parent).css('background')
+				})
+				.addClass('bg--combined');								
+			}else{
+				$(parent).css({
+					'background-image': `url(${src})`
+				});				
+			}
 			$(this).hide();
 		});
 
-	
+		function disablePageScroll(){
+			$('body').css({
+				paddingRight: scrollbarWidth + 'px',
+				overflow: 'hidden'
+			});
+		}
+
+		function enablePageScroll(){
+			$('body').css({
+				paddingRight: 0,
+				overflow: 'auto'
+			});
+		}
+
+		function toggleModal(id){
+			$(id).hasClass('modal--visible') ? enablePageScroll() : disablePageScroll();
+			$(id).toggleClass('modal--visible');
+		}
+
+		$('[data-toggle="modal"]').click(function(evt){
+			evt.preventDefault();
+			toggleModal( $(this).data('target') );
+		});
 
 	});	
 

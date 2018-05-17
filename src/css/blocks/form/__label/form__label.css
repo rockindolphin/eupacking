@@ -1,0 +1,8 @@
+
+.form__label{
+	font-size: 14px;
+	font-weight: var(--fw-bold);
+	text-transform: uppercase;
+	margin-bottom: 5px;
+}
+

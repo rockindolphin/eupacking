@@ -1,0 +1,15 @@
+
+.form--callback{
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	justify-content: space-between;
+	background-color: var(--white);
+	& form{
+		padding: 15px 30px;
+	}
+	& img{
+		display: block;
+	}
+}
+

@@ -1,0 +1,13 @@
+
+.blog--with-initial{
+	&>*{
+		&:first-child{
+			&::first-letter{
+				font-size: 44px;
+				line-height: 0;
+				font-weight: var(--fw-extra-bold);
+			}
+		}
+	}
+}
+

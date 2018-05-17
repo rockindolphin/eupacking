@@ -21,7 +21,7 @@ html(lang="ru")
 						br
 				section.section
 					.page__wrapper
-						h2.fs--38.mt--0.mb--26.text--center Производство упаковки на заказ
+						h2.fs--38.mt-0.mb-4.text-center Производство упаковки на заказ
 						ul.list.list--flex
 							li.list__item
 								h4.item__header Качество
@@ -75,5 +75,28 @@ html(lang="ru")
 										li адекватная стоимость услуг
 										li оптимизация затрат и снижение рисков, связанных с упаковкой
 										li и просто, с нами удобно работать!
+				#modalBackCall.modal.modal--visible
+					.modal__dialog
+						.form--callback
+							button.btn.btn--close.form__close(data-toggle="modal", data-target="#modalBackCall") x
+							.form__pic
+								img(src="../images/callback.png", alt="callback")
+							form
+								.row
+									.col-12
+										h3.fs--36.mt-0 Обратный звонок
+								.row.form__row
+									.col-12
+										label.form__label.d-block Ваше Имя
+										input.form__control(type="text")
+								.row.form__row
+									.col-8
+										label.form__label.d-block Ваш Телефон
+										.d-flex.align-items-center
+											input.form__control.mr-3(type="text")
+											input.btn.btn--green.btn--sm(type="submit", value="Жду звонка!")
+								.row
+									.col-12
+										| Мы перезвоним Вам очень скоро!
 				include ./partials/callback.pug
 			include ./partials/footer.pug

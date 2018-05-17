@@ -1,0 +1,6 @@
+
+.page--locked{
+	overflow:  hidden;
+	padding-right: var(--scrollbar-width);
+}
+

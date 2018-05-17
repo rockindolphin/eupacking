@@ -1,0 +1,14 @@
+
+.form__control{
+	border:  2px solid;
+	border-color: var(--black);
+	font-size: 13px;
+	min-height: 34px;
+	padding-left: 10px;
+	padding-right: 10px;
+	@nest textarea&{
+		padding-top: 10px;
+		padding-bottom: 10px;		
+	}
+}
+

@@ -1,0 +1,7 @@
+
+.form--feedback{
+	background-image: url('../images/post_stamp.png');
+	background-position: calc(100% - 30px) 100%;
+	background-repeat: no-repeat;
+}
+

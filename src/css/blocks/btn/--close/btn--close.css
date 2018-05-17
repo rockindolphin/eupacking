@@ -1,0 +1,15 @@
+
+.btn--close{
+	padding:  0;
+	width: 30px;
+	height: 30px;
+	background-color: var(--black);
+	color: var(--white);
+	font-size: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: var(--fw-normal);
+	line-height: 0;
+}
+

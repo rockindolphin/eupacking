@@ -3,5 +3,13 @@
 	width: 100%;
 	padding-top: 30px;
 	padding-bottom: 10px;
+	& img[data-bg]{
+		display: none;
+	}
+	&.bg--combined{
+		background-repeat: no-repeat !important;
+		background-size: cover !important;
+		background-position: center !important;
+	}	
 }
 
