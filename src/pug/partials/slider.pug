@@ -18,10 +18,10 @@ mixin slider(count, sectionClass)
 					while i < count
 						- var src = 'images/products/product-'+(i+1)+'.jpg';
 						- var alt = 'product-'+(i+1);
-							a.swiper-slide.slider__slide(href=src, data-lightbox="product", data-title=titles[i%4])
+							a.swiper-slide.slider__slide
 								.tile.tile--product.tile--product-thumb
 									.tile__pic
-										img(src=src, alt=alt, data-bg="true")
+										img(src=src, alt=alt, data-bg="true", data-size="900x742")
 									.tile__title=titles[i%4]
 						- i++
 				.slider__btn-wrapper

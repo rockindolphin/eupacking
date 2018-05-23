@@ -1,6 +1,13 @@
 (function($){
 	$(document).ready(function() {
 
+		function generateID(){
+			// Math.random should be unique because of its seeding algorithm.
+			// Convert it to base 36 (numbers + letters), and grab the first 9 characters
+			// after the decimal.
+			return '_' + Math.random().toString(36).substr(2, 9);
+		};			
+
 		//ширина скроллбара
 		var scrollMeasure = $('<div>').addClass('scroll__measure').get(0);
 		$('body').append(scrollMeasure);
@@ -69,6 +76,41 @@
 				}
 			});
 		});
+
+		//PhotoSwipe
+		var pswpElement = document.querySelectorAll('.pswp')[0];
+
+		$('.slider--products').each(function(){
+			var config = {
+				uid: generateID(),
+				items: [],
+				options: {
+					bgOpacity: 0.8,
+					closeOnScroll: false,
+				}
+			}
+			var gallery = this;
+			$(gallery).find('.tile--product .tile__pic').each(function(index, pic){
+				var $img = $(pic).find('img');
+				var size = $img.data('size').split('x');
+				var item = {
+					src: $img.attr('src'),
+					w: size[0],
+					h: size[1],
+					title: $img.attr('alt')
+				}
+				config.items.push(item);
+				$(pic).click(function(){
+					var config = $(gallery).data('pswpConfig');
+					config.options.index = index;
+					var galleyPS = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, config.items, config.options);
+					galleyPS.init();
+				});
+			});
+			$(gallery).data('pswpConfig', config);
+		});
+
+
 
 	});	
 
