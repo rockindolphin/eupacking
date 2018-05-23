@@ -8,13 +8,13 @@
 	overflow-y: scroll;
 	overflow-x: auto;
 	min-width: var(--page-min);
-	@media (--pre-medium-viewport){
+	@media (--sm-viewport){
 			
 	}
-	@media (--medium-viewport){
+	@media (--md-viewport){
 								
 	}
-	@media (--large-viewport){
+	@media (--lg-viewport){
 										
 	}	
 }

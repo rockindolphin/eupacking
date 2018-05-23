@@ -1,0 +1,28 @@
+
+.tile--product-thumb{
+	& .tile__pic{
+		&::after{
+			content:  '';
+			display: block;
+			width: 30px;
+			height: 30px;
+			background-color: var(--black);
+			background-image: url("data:image/svg+xml,%3Csvg height='24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M9 9V6h1v3h3v1h-3v3H9v-3H6V9h3zm7.477 5.356a8.5 8.5 0 1 0-2.122 2.122l6.304 6.303c.117.117.303.12.423 0l1.7-1.699a.304.304 0 0 0-.001-.423l-6.304-6.303zM9.5 16a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13z' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E%0A");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 19px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			opacity: 0;
+			transition: opacity var(--anim-dur);
+		}
+		&:hover{
+			&::after{
+				opacity: 1;
+			}
+		}
+	}	
+}
+

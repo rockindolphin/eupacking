@@ -1,9 +1,29 @@
-section.section.section--green
-	.page__wrapper
-		br
-		br
-		br
-		| slider
-		br
-		br
-		br
+-
+	var titles = [
+		'Аптечная сеть «Ригла», ТМ «Азбука здоровья»',
+		'Аптеки «Вита», Леденцы в блистере Vita Verde',
+		'Аптечная сеть «Доктор Столетов» Жевательная резинка без сахара',
+		'Леденцы «Будь здоров!»',
+	]
+
+
+mixin slider(count, sectionClass)
+	- var sc = {class : sectionClass};
+	section.section.section--slider()&attributes(sc)
+		.page__wrapper
+			h3.fs-1.text-center.mt-0 Фармацевтика, косметика, парфюмерия
+			.swiper-container.slider.slider--products
+				.swiper-wrapper
+					- var i = 0;
+					while i < count
+						- var src = 'images/products/product-'+(i+1)+'.jpg';
+						- var alt = 'product-'+(i+1);
+							a.swiper-slide.slider__slide(href=src, data-lightbox="product", data-title=titles[i%4])
+								.tile.tile--product.tile--product-thumb
+									.tile__pic
+										img(src=src, alt=alt, data-bg="true")
+									.tile__title=titles[i%4]
+						- i++
+				.slider__btn-wrapper
+					.swiper-button-prev.slider__btn.slider__btn--prev
+					.swiper-button-next.slider__btn.slider__btn--next

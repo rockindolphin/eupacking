@@ -1,0 +1,14 @@
+
+.slider--products{
+	& .slider__btn-wrapper{
+		position: absolute;
+		top: 0;
+		width: 100%;
+		&::before{
+			content: '';
+			display: block;
+			padding-top: calc( (100%-(30px*3))/4 );
+		}
+	}
+}
+

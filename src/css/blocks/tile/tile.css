@@ -1,28 +1,5 @@
 
 .tile{
-	width: 100%;
-	max-width: 345px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-start;
-	background-color: var(--white);
-	border:  2px solid;
-	border-color: var(--black);
-	position: relative;
-	margin-left: 1px;
-	margin-right: 1px;
-	padding-left: 30px;
-	padding-right: 30px;
-	padding-top: 90px;
-	padding-bottom: 6px;
-	transition: background-color var(--anim-dur) ease-out;
-	text-decoration: none;
-	&:hover{
-		background-color: var(--green_c8d);
-		& .tile__icon{
-			background-color: var(--white);
-		}
-	}
+
 }
 

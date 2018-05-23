@@ -1,10 +1,10 @@
 
 .header{
 
-	@media (--medium-viewport){
+	@media (--md-viewport){
 					
 	}
-	@media (--large-viewport){
+	@media (--lg-viewport){
 		
 	}	
 }

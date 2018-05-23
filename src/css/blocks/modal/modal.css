@@ -9,5 +9,7 @@
 	display: none;
 	align-items: center;
 	justify-content: center;
+	overflow:  auto;
+	padding: var(--page-gap);
 }
 

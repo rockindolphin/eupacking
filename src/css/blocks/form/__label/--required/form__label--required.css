@@ -1,0 +1,11 @@
+
+.form__label--required{
+	&::after{
+		content:  '*';
+		display: inline;
+		color: var(--red);
+		vertical-align: text-top;
+		margin-left: 2px;
+	}
+}
+

@@ -58,6 +58,18 @@
 			toggleModal( $(this).data('target') );
 		});
 
+		//slider
+		$('.slider--products').each(function(){
+			var mySwiper = new Swiper(this, {
+				slidesPerView: 4,
+				spaceBetween: 30,
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				}
+			});
+		});
+
 	});	
 
 })(jQuery);

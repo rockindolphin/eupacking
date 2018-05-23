@@ -10,7 +10,7 @@ html(lang="ru")
 					.page__wrapper
 						.person__wrapper
 							.person__pic
-								img(src="../images/person-1.png", alt="person-1")
+								img(src="images/person-1.png", alt="person-1")
 							.person__text
 								h3.header
 									| Работайте 
@@ -65,5 +65,7 @@ html(lang="ru")
 					.page__wrapper
 							| Если Вы хотите, чтобы Ваша упаковка была создана профессионалами — обратитесь в Группу Евроупак.
 				include ./partials/slider.pug
+				+slider(12, ' section--green')
+				+slider(12, ' section--white')
 				include ./partials/callback.pug
 			include ./partials/footer.pug

@@ -36,8 +36,8 @@
 mixin head(data)
 	head
 		title ГРУППА ЕВРОУПА
-		link(rel="stylesheet", href="../css/bootstrap_utilities.css?ver=" + pDate())
-		link(rel="stylesheet", href="../css/style.css?ver=" + pDate())
+		link(rel="stylesheet", href="css/bootstrap_utilities.css?ver=" + pDate())
+		link(rel="stylesheet", href="css/style.css?ver=" + pDate())
 		link(rel="shortcut icon", type="image/png", href="images/favicon.png")
 		meta(charset='utf-8')
 		meta(name="viewport", content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes")
@@ -54,7 +54,7 @@ mixin retina(opts)
 	- var alt = opts.alt ? opts.alt : name;
 	- var className = opts.class;
 	- var data = opts.data ? opts.data : '';
-	- var imgFolder = '../images/';
+	- var imgFolder = 'images/';
 	- var className = opts.class;
 	picture(class=className)
 		source(

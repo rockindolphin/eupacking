@@ -6,10 +6,10 @@
 	padding-right: var(--page-gap);
 	width: 100%;
 	max-width: calc( var(--wrapper-max) + var(--page-gap)*2 );
-	@media (--medium-viewport){
+	@media (--md-viewport){
 
 	}
-	@media (--large-viewport) {
+	@media (--lg-viewport) {
 
 	}
 }

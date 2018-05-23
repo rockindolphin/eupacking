@@ -1,0 +1,11 @@
+
+.slider__btn{
+	width: 30px;
+	height: 30px;
+	transform: translateY(-50%);
+	margin-top: 0;
+	&.swiper-button-disabled{
+		opacity: 0.5;
+	}
+}
+

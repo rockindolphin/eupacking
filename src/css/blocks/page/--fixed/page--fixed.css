@@ -1,12 +1,12 @@
 
 .page--fixed{
-	@media (--pre-medium-viewport){
+	@media (--sm-viewport){
 		
 	}
-	@media (--medium-viewport){
+	@media (--md-viewport){
 							
 	}
-	@media (--large-viewport){
+	@media (--lg-viewport){
 										
 	}
 }

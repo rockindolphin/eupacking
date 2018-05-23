@@ -1,0 +1,23 @@
+#modalBackCall.modal
+	.modal__dialog
+		button.btn.btn--close.form__close(data-toggle="modal", data-target="#modalBackCall") x
+		.form--callback
+			.form__pic
+				img(src="images/callback.png", alt="callback", data-bg='true')
+			form
+				.row
+					.col-12
+						h3.fs--36.mt-0.line-height-1 Обратный звонок
+				.row.form__row
+					.col-12
+						label.form__label.form__label--required.d-block Ваше Имя
+						input.form__control(type="text")
+				.row.form__row
+					.col-12
+						label.form__label.form__label--required.d-block Ваш Телефон
+					.col-12.d-flex.align-items-center.flex-wrap
+						input.form__control.mr-3.mb-3(type="text")
+						input.btn.btn--green.btn--sm.mb-3(type="submit", value="Жду звонка!")
+				.row
+					.col-12
+						| Мы перезвоним Вам очень скоро!

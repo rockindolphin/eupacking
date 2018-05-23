@@ -1,16 +1,17 @@
 
 :root{
 	/*Variables*/
-	--wrapper-max: 1170px; 
-	--page-gap: 15px;  
-	--page-min: 1100px;  
+	--wrapper-max: 		1170px; 
+	--page-gap: 		15px;  
+	--page-min: 		1100px;  
 	--scrollbar-width:  0px;
-	--anim-dur:  0.4s;
+	--anim-dur:  		0.4s;
 
 
 	/*Colors*/
-	--black: #000000;
-	--white: #ffffff;
+	--black: 		#000000;
+	--white: 		#ffffff;
+	--red: 			#ff0000;
 
 	--gray_272: 	#27282d;
 	--green_879: 	#879999;
@@ -19,22 +20,24 @@
 	--green_5d6: 	#5d6463;
 
 	/*Fonts*/
-	--fw-thin: 100;
-	--fw-extra-light: 200;
-	--fw-light: 300;
-	--fw-normal: 400;
-	--fw-medium: 500;
-	--fw-semi-bold: 600;
-	--fw-bold: 700;
-	--fw-extra-bold: 800;
-	--fw-black: 900;
+	--fw-thin: 			100;
+	--fw-extra-light: 	200;
+	--fw-light: 		300;
+	--fw-normal: 		400;
+	--fw-medium: 		500;
+	--fw-semi-bold: 	600;
+	--fw-bold: 			700;
+	--fw-extra-bold: 	800;
+	--fw-black: 		900;
 	
 }
 
 
-@custom-media --medium-viewport (width > 1023px);
-@custom-media --large-viewport (width > 1279px);
-@custom-media --header-hlp-viewport (width > 1919px);
+@custom-media --xs-viewport (width >= 0px);
+@custom-media --sm-viewport (width >= 576px);
+@custom-media --md-viewport (width >= 768px);
+@custom-media --lg-viewport (width >= 992px);
+@custom-media --xl-viewport (width >= 1200px);
 
 
 @custom-selector :--all-headers h1, h2, h3, h4, h5, h6;
@@ -121,50 +124,50 @@ img{
 }
 
 h1{		
-	@media (--medium-viewport){
+	@media (--md-viewport){
 
 	}
-	@media (--large-viewport){
+	@media (--lg-viewport){
 
 	}	
 }
 h2{	
-	@media (--medium-viewport){
+	@media (--md-viewport){
 
 	}
-	@media (--large-viewport){
+	@media (--lg-viewport){
 	
 	}
 }
 h3{
 
-	@media (--medium-viewport){
+	@media (--md-viewport){
 
 	}
-	@media (--large-viewport){
+	@media (--lg-viewport){
 
 	}
 }
 h4{
-	@media (--medium-viewport){
+	@media (--md-viewport){
 
 	}	
-	@media (--large-viewport){
+	@media (--lg-viewport){
 
 	}	
 }
 h5{
-	@media (--medium-viewport){
+	@media (--md-viewport){
 
 	}
-	@media (--large-viewport){
+	@media (--lg-viewport){
 	}	
 }
 h6{
-	@media (--medium-viewport){
+	@media (--md-viewport){
 
 	}
-	@media (--large-viewport){
+	@media (--lg-viewport){
 
 	}
 }
