@@ -16,12 +16,13 @@ mixin slider(count, sectionClass)
 				.swiper-wrapper
 					- var i = 0;
 					while i < count
-						- var src = 'images/products/product-'+(i+1)+'.jpg';
+						- var src = 'images/products/thumbs/product-'+(i+1)+'.jpg';
+						- var full = 'images/products/product-'+(i+1)+'.jpg';
 						- var alt = 'product-'+(i+1);
 							a.swiper-slide.slider__slide
 								.tile.tile--product.tile--product-thumb
 									.tile__pic
-										img(src=src, alt=alt, data-bg="true", data-size="900x742")
+										img(src=src, alt=alt, data-bg="true", data-full=full)
 									.tile__title=titles[i%4]
 						- i++
 				.slider__btn-wrapper

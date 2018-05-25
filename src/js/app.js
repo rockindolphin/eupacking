@@ -56,13 +56,20 @@
 		}
 
 		function toggleModal(id){
-			$(id).hasClass('modal--visible') ? enablePageScroll() : disablePageScroll();
-			$(id).toggleClass('modal--visible');
+			$(`#${id}`).hasClass('modal--visible') ? enablePageScroll() : disablePageScroll();
+			$(`#${id}`).toggleClass('modal--visible');
 		}
 
 		$('[data-toggle="modal"]').click(function(evt){
 			evt.preventDefault();
 			toggleModal( $(this).data('target') );
+		});
+
+		$('.modal').click(function(evt){
+			var id = $(this).attr('id');
+			if( evt.target == this ){
+				toggleModal( id );
+			}
 		});
 
 		//slider
@@ -77,55 +84,114 @@
 			});
 		});
 
-		//PhotoSwipe
-		var pswpElement = document.querySelectorAll('.pswp')[0];
+		//modalSliderPic
+		var $modalSliderPic = $('#modalGallery .slider--gallery-pic');
+		$modalSliderPic.data('gallery', {
+			slider: false, 
+			options: {
+				slidesPerView: 'auto',
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				modalDialog: false,
+				autoHeight: true,
+				updateContainrSize: function(swiper){
+					var $image = $(swiper.slides[swiper.activeIndex]).find('img');
+					var descSlider = $modalSliderDesc.data('gallery').slider;
+					$(swiper.$el).css({
+						maxWidth: '100vw'
+					});
+					$(descSlider.$el).css({
+						maxWidth: '100vw'
+					});	
+					requestAnimationFrame(function(){
+						$(swiper.$el).css({
+							maxWidth: $image.width()
+						});
+						$(descSlider.$el).css({
+							maxWidth: $image.width()
+						});
+					})				
+					requestAnimationFrame(function(){
+						swiper.update();
+						descSlider.update();						
+					})
+				},
+				on: {
+					init: function () {
+						this.params.modalDialog = $(this.$el).closest('.modal__dialog');
+						this.params.updateContainrSize(this);
+					},					
+					imagesReady: function () {
+						this.params.updateContainrSize(this);
+					},					
+					slideChange: function () {
+						this.params.updateContainrSize(this);
+					},
+				}								
+			}
+		});
+
+		var $modalSliderDesc = $('#modalGallery .slider--gallery-desc');
+		$modalSliderDesc.data('gallery', {
+			slider: false, 
+			options: {
+				slidesPerView: 1,								
+			}
+		});		
 
 		$('.slider--products').each(function(){
-			var config = {
+			var blogSliderConfig = {
 				uid: generateID(),
 				items: [],
-				options: {
-					bgOpacity: 0.8,
-					closeOnScroll: false,
-					closeEl:true,
-					captionEl: true,
-					fullscreenEl: false,
-					shareEl: false,
-					counterEl: false,
-					arrowEl: true,
-					preloaderEl: true,
-
-					zoomEl: false,//disable zoom
-					maxSpreadZoom: 1,
-					getDoubleTapZoom: function(isMouseClick, item) {
-						return item.initialZoomLevel;
-					},
-					pinchToClose: false				
-				}
 			}
-			var gallery = this;
-			$(gallery).find('.tile--product .tile__pic').each(function(index, pic){
+			var blogSlider = this;
+			$(blogSlider).find('.tile--product .tile__pic').each(function(index, pic){
 				var $img = $(pic).find('img');
-				var size = $img.data('size').split('x');
 				var item = {
-					src: $img.attr('src'),
-					w: size[0],
-					h: size[1],
-					title: $img.attr('alt')
+					min: $img.attr('src'),
+					full: $img.data('full'),
+					alt: $img.attr('alt'),
 				}
-				config.items.push(item);
-				$(pic).click(function(){
-					var config = $(gallery).data('pswpConfig');
-					config.options.index = index;
-					var galleyPS = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, config.items, config.options);
-					galleyPS.init();
-					galleyPS.listen('redrawControls', function(data) {
-						console.log(this);
-					});					
-					galleyPS.shout('redrawControls');
-				});
+				blogSliderConfig.items.push(item);
+
+					$(pic).click(function(){
+						var modalSliderPicConfig = $modalSliderPic.data('gallery');
+						var modalSliderDescConfig = $modalSliderDesc.data('gallery');
+						if( modalSliderPicConfig.uid == blogSliderConfig.uid ){// та же галерея, просто переключить слайд
+
+						}else{//загрузить слайды галереи
+							var sliderPicHtml = '';
+							var sliderDescHtml = '';
+							blogSliderConfig.items.map(function(item){
+								sliderPicHtml += `<div class="swiper-slide slider__slide">
+													<img src="${item.full}" alt="${item.alt}">
+												</div>`;
+								sliderDescHtml += `<div class="swiper-slide slider__slide">
+													<div class="product__title">${item.alt}</div>
+												</div>`;
+							});
+							$modalSliderPic.find('.swiper-wrapper').html(sliderPicHtml);
+							$modalSliderDesc.find('.swiper-wrapper').html(sliderDescHtml);
+							if( !modalSliderPicConfig.slider ){//первая инициализация
+								modalSliderDescConfig.slider = new Swiper($modalSliderDesc, modalSliderDescConfig.options);
+								modalSliderPicConfig.slider = new Swiper($modalSliderPic, modalSliderPicConfig.options);
+
+								modalSliderDescConfig.slider.controller.control = modalSliderPicConfig.slider;	
+								modalSliderPicConfig.slider.controller.control = modalSliderDescConfig.slider;
+
+								$modalSliderDesc.data('gallery', modalSliderDescConfig);				
+								$modalSliderPic.data('gallery', modalSliderPicConfig);				
+							}else{
+								modalSliderPicConfig.slider.update();
+								modalSliderDescConfig.slider.update();
+							}
+						}
+						toggleModal('modalGallery');
+					});
 			});
-			$(gallery).data('pswpConfig', config);
+			$(blogSlider).data('gallery', blogSliderConfig);
 		});
 
 

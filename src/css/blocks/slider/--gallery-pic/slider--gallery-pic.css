@@ -1,0 +1,10 @@
+
+.slider--gallery-pic{
+	& .swiper-wrapper{
+
+	}
+	& .slider__slide{
+		width:  auto;
+	}
+}
+
