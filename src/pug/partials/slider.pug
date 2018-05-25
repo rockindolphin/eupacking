@@ -19,10 +19,11 @@ mixin slider(count, sectionClass)
 						- var src = 'images/products/thumbs/product-'+(i+1)+'.jpg';
 						- var full = 'images/products/product-'+(i+1)+'.jpg';
 						- var alt = 'product-'+(i+1);
-							a.swiper-slide.slider__slide
+						- var options = '{"caption" : "<b>'+alt+'<b>"}';
+							a.swiper-slide.slider__slide(data-fancybox="gallery", href=full, data-options=options)
 								.tile.tile--product.tile--product-thumb
 									.tile__pic
-										img(src=src, alt=alt, data-bg="true", data-full=full)
+										img(src=src, alt=alt, data-bg="true")
 									.tile__title=titles[i%4]
 						- i++
 				.slider__btn-wrapper

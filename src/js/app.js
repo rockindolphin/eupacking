@@ -84,116 +84,65 @@
 			});
 		});
 
-		//modalSliderPic
-		var $modalSliderPic = $('#modalGallery .slider--gallery-pic');
-		$modalSliderPic.data('gallery', {
-			slider: false, 
-			options: {
-				slidesPerView: 'auto',
-				navigation: {
-					nextEl: '.swiper-button-next',
-					prevEl: '.swiper-button-prev',
-				},
-				modalDialog: false,
-				autoHeight: true,
-				updateContainrSize: function(swiper){
-					var $image = $(swiper.slides[swiper.activeIndex]).find('img');
-					var descSlider = $modalSliderDesc.data('gallery').slider;
-					$(swiper.$el).css({
-						maxWidth: '100vw'
-					});
-					$(descSlider.$el).css({
-						maxWidth: '100vw'
-					});	
-					requestAnimationFrame(function(){
-						$(swiper.$el).css({
-							maxWidth: $image.width()
-						});
-						$(descSlider.$el).css({
-							maxWidth: $image.width()
-						});
-					})				
-					requestAnimationFrame(function(){
-						swiper.update();
-						descSlider.update();						
-					})
-				},
-				on: {
-					init: function () {
-						this.params.modalDialog = $(this.$el).closest('.modal__dialog');
-						this.params.updateContainrSize(this);
-					},					
-					imagesReady: function () {
-						this.params.updateContainrSize(this);
-					},					
-					slideChange: function () {
-						this.params.updateContainrSize(this);
-					},
-				}								
-			}
-		});
 
-		var $modalSliderDesc = $('#modalGallery .slider--gallery-desc');
-		$modalSliderDesc.data('gallery', {
-			slider: false, 
-			options: {
-				slidesPerView: 1,								
-			}
+		//gallery
+		$().fancybox({
+			selector : '[data-fancybox]',
+			loop: true,
+			infobar: false,
+			arrows: false,
+			smallBtn: true,
+			toolbar: false,
+			lang: "ru",
+			i18n: {
+				ru: {
+					CLOSE: "Закрыть",
+					NEXT: "Следующий",
+					PREV: "Предыдущий",
+					ERROR: "Содержимое не может быть загружено <br/> Повторите попытку позже.",
+					PLAY_START: "Начать слайдшоу",
+					PLAY_STOP: "Остановить слайдшоу",
+					FULL_SCREEN: "Полный экран",
+					THUMBS: "Превью",
+					DOWNLOAD: "Скачать",
+					SHARE: "Поделиться",
+					ZOOM: "Увеличить"
+				},
+			},
+			baseTpl:
+				'<div class="fancybox-container" role="dialog" tabindex="-1">' +
+				'<div class="fancybox-bg"></div>' +
+				'<div class="fancybox-inner">' +
+				'<div class="fancybox-infobar">' +
+				"<span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span>" +
+				"</div>" +
+				'<div class="fancybox-toolbar">{{buttons}}</div>' +
+				//'<div class="fancybox-navigation">{{arrows}}</div>' +
+				'<div class="fancybox-stage"></div>' +
+				'<div class="fancybox-caption"></div>' +
+				"</div>" +
+				"</div>",
+			clickContent: function(current, event) {
+				return false;
+			},				
+			afterLoad: function(instance, slide ){
+				var lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque magnam vitae ut cumque, esse nesciunt eius sint aliquid ullam. Voluptatem, sunt mollitia praesentium porro deserunt animi ducimus maxime dignissimos quam. ';
+				var $caption = $(`<div class="product__details">${slide.opts.caption + lorem}</div>`);
+				var $prev = $('<div class="swiper-button-prev slider__btn slider__btn--prev"></div>')
+				var $next = $('<div class="swiper-button-next slider__btn slider__btn--next"></div>')
+				//slide.$image.after( $caption );
+				slide.$image.after( $prev, $next );
+				$next.click(function(evt){
+					evt.stopPropagation();
+					instance.next();
+				});
+				$prev.click(function(evt){
+					evt.stopPropagation();
+					instance.previous();
+				});
+				//instance.scaleToFit( duration );
+			}			
 		});		
-
-		$('.slider--products').each(function(){
-			var blogSliderConfig = {
-				uid: generateID(),
-				items: [],
-			}
-			var blogSlider = this;
-			$(blogSlider).find('.tile--product .tile__pic').each(function(index, pic){
-				var $img = $(pic).find('img');
-				var item = {
-					min: $img.attr('src'),
-					full: $img.data('full'),
-					alt: $img.attr('alt'),
-				}
-				blogSliderConfig.items.push(item);
-
-					$(pic).click(function(){
-						var modalSliderPicConfig = $modalSliderPic.data('gallery');
-						var modalSliderDescConfig = $modalSliderDesc.data('gallery');
-						if( modalSliderPicConfig.uid == blogSliderConfig.uid ){// та же галерея, просто переключить слайд
-
-						}else{//загрузить слайды галереи
-							var sliderPicHtml = '';
-							var sliderDescHtml = '';
-							blogSliderConfig.items.map(function(item){
-								sliderPicHtml += `<div class="swiper-slide slider__slide">
-													<img src="${item.full}" alt="${item.alt}">
-												</div>`;
-								sliderDescHtml += `<div class="swiper-slide slider__slide">
-													<div class="product__title">${item.alt}</div>
-												</div>`;
-							});
-							$modalSliderPic.find('.swiper-wrapper').html(sliderPicHtml);
-							$modalSliderDesc.find('.swiper-wrapper').html(sliderDescHtml);
-							if( !modalSliderPicConfig.slider ){//первая инициализация
-								modalSliderDescConfig.slider = new Swiper($modalSliderDesc, modalSliderDescConfig.options);
-								modalSliderPicConfig.slider = new Swiper($modalSliderPic, modalSliderPicConfig.options);
-
-								modalSliderDescConfig.slider.controller.control = modalSliderPicConfig.slider;	
-								modalSliderPicConfig.slider.controller.control = modalSliderDescConfig.slider;
-
-								$modalSliderDesc.data('gallery', modalSliderDescConfig);				
-								$modalSliderPic.data('gallery', modalSliderPicConfig);				
-							}else{
-								modalSliderPicConfig.slider.update();
-								modalSliderDescConfig.slider.update();
-							}
-						}
-						toggleModal('modalGallery');
-					});
-			});
-			$(blogSlider).data('gallery', blogSliderConfig);
-		});
-
 
 
 	});	
