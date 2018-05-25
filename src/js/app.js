@@ -119,7 +119,7 @@
 				'<div class="fancybox-toolbar">{{buttons}}</div>' +
 				//'<div class="fancybox-navigation">{{arrows}}</div>' +
 				'<div class="fancybox-stage"></div>' +
-				'<div class="fancybox-caption"></div>' +
+				//'<div class="fancybox-caption"></div>' +
 				"</div>" +
 				"</div>",
 			clickContent: function(current, event) {
@@ -130,17 +130,17 @@
 				var $caption = $(`<div class="product__details">${slide.opts.caption + lorem}</div>`);
 				var $prev = $('<div class="swiper-button-prev slider__btn slider__btn--prev"></div>')
 				var $next = $('<div class="swiper-button-next slider__btn slider__btn--next"></div>')
-				//slide.$image.after( $caption );
+				slide.$image.after( $caption );
 				slide.$image.after( $prev, $next );
 				$next.click(function(evt){
-					evt.stopPropagation();
+					//evt.stopPropagation();
 					instance.next();
 				});
 				$prev.click(function(evt){
-					evt.stopPropagation();
+					//evt.stopPropagation();
 					instance.previous();
 				});
-				//instance.scaleToFit( duration );
+				//instance.scaleToFit();
 			}			
 		});		
 

@@ -1,5 +1,6 @@
 
 .product__details{
 	background-color: var(--white);
+	transform: translateY(-100%);
 }
 
