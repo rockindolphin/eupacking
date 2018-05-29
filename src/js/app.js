@@ -86,60 +86,34 @@
 
 
 		//gallery
-		$().fancybox({
-			selector : '[data-fancybox]',
-			loop: true,
-			infobar: false,
-			arrows: false,
-			smallBtn: true,
-			toolbar: false,
-			lang: "ru",
-			i18n: {
-				ru: {
-					CLOSE: "Закрыть",
-					NEXT: "Следующий",
-					PREV: "Предыдущий",
-					ERROR: "Содержимое не может быть загружено <br/> Повторите попытку позже.",
-					PLAY_START: "Начать слайдшоу",
-					PLAY_STOP: "Остановить слайдшоу",
-					FULL_SCREEN: "Полный экран",
-					THUMBS: "Превью",
-					DOWNLOAD: "Скачать",
-					SHARE: "Поделиться",
-					ZOOM: "Увеличить"
-				},
-			},
-			baseTpl:
-				'<div class="fancybox-container" role="dialog" tabindex="-1">' +
-				'<div class="fancybox-bg"></div>' +
-				'<div class="fancybox-inner">' +
-				'<div class="fancybox-infobar">' +
-				"<span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span>" +
-				"</div>" +
-				'<div class="fancybox-toolbar">{{buttons}}</div>' +
-				//'<div class="fancybox-navigation">{{arrows}}</div>' +
-				'<div class="fancybox-stage"></div>' +
-				//'<div class="fancybox-caption"></div>' +
-				"</div>" +
-				"</div>",
-			clickContent: function(current, event) {
-				return false;
-			},				
-			afterLoad: function(instance, slide ){
-				var $caption = $(`<div class="product__details">${slide.opts.caption}</div>`);
-				var $prev = $('<div class="swiper-button-prev slider__btn slider__btn--prev"></div>')
-				var $next = $('<div class="swiper-button-next slider__btn slider__btn--next"></div>')
-				slide.$image.after( $caption );
-				slide.$image.after( $prev, $next );
-				$next.click(function(evt){
-					instance.next();
-				});
-				$prev.click(function(evt){
-					instance.previous();
-				});
-			}			
-		});		
+		lightbox.option({
+			albumLabel: '',
+			disableScrolling: true
+		});
 
+		var lastScrollTop = 0;
+		$('[data-lightbox]').click(function(evt){
+			lastScrollTop = window.pageYOffset;
+		});
+		function scrollToLast(){
+			$('html, body').scrollTop(lastScrollTop);
+		}
+		$('.lb-close').click(function(){
+			scrollToLast();
+		});
+		$('.lightboxOverlay').click(function(){
+			scrollToLast();
+		});
+		$('.lightbox').click(function(evt){
+			if( evt.target == this ){
+				scrollToLast();			
+			}
+		});
+		$('.lb-container').click(function(evt){
+			if( evt.target === this ){//click on close
+				$(this).closest('.lightbox').find('.lb-close').click();
+			}
+		});
 
 	});	
 

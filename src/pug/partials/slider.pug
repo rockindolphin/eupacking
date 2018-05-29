@@ -21,7 +21,8 @@ mixin slider(count, sectionClass)
 						- var alt = 'product-'+(i+1);
 						- var desc = 'Печать СМУК 6+0 (2 Pantone), УФ-лак, конгрев, тиснение, вырубка, склейка 3 т';
 						- var options = '{"caption" : "<div class=\'product__title\'>'+titles[i%4]+'</div><div class=\'product__desc\'>'+desc+'</div>"}';
-							a.swiper-slide.slider__slide(data-fancybox="gallery", href=full, data-options=options)
+						- var caption = "<div class='product__title'>"+titles[i%4]+"</div><div class='product__desc'>"+desc+"</div>"
+							a.swiper-slide.slider__slide(data-lightbox="gallery",  data-title=caption, href=full)
 								.tile.tile--product.tile--product-thumb
 									.tile__pic
 										img(src=src, alt=alt, data-bg="true")
