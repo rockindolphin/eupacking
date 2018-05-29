@@ -1,5 +1,7 @@
 
 .product__title{
-
+	@nest .fancybox-content & {
+		font-weight: var(--fw-extra-bold);
+	}
 }
 

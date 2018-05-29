@@ -1,5 +1,8 @@
 
 .header__logo{
 	flex-shrink: 0;
+	& img{
+		display: block;
+	}
 }
 

@@ -1,6 +1,15 @@
 
 .product__details{
-	background-color: var(--white);
-	transform: translateY(-100%);
+	@nest .fancybox-content & {
+		background-color: var(--white);
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		padding: 20px 30px;
+		border-top: 2px solid;
+		border-color: var(--black);
+		opacity: 0;
+		transition: opacity var(--anim-dur);
+	}
 }
 

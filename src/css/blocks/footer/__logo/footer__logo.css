@@ -3,5 +3,8 @@
 	margin-left: 65px;
 	margin-right: 65px;
 	flex-shrink: 0;
+	& img{
+		display: block;
+	}	
 }
 

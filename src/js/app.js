@@ -126,21 +126,17 @@
 				return false;
 			},				
 			afterLoad: function(instance, slide ){
-				var lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque magnam vitae ut cumque, esse nesciunt eius sint aliquid ullam. Voluptatem, sunt mollitia praesentium porro deserunt animi ducimus maxime dignissimos quam. ';
-				var $caption = $(`<div class="product__details">${slide.opts.caption + lorem}</div>`);
+				var $caption = $(`<div class="product__details">${slide.opts.caption}</div>`);
 				var $prev = $('<div class="swiper-button-prev slider__btn slider__btn--prev"></div>')
 				var $next = $('<div class="swiper-button-next slider__btn slider__btn--next"></div>')
 				slide.$image.after( $caption );
 				slide.$image.after( $prev, $next );
 				$next.click(function(evt){
-					//evt.stopPropagation();
 					instance.next();
 				});
 				$prev.click(function(evt){
-					//evt.stopPropagation();
 					instance.previous();
 				});
-				//instance.scaleToFit();
 			}			
 		});		
 
