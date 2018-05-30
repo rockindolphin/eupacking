@@ -1,0 +1,36 @@
+
+.menu--mobile{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: var(--white);
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding-left: var(--page-gap);
+	padding-right: var(--page-gap);
+	padding-top: 60px;
+	padding-bottom: 60px;
+	& .btn--menu{
+		position: absolute;
+		top: 0;
+		right: var(--page-gap);
+	}
+	& .header__nav{
+		flex-direction: column;
+	}
+	& li{
+		& a{
+			border-bottom: 2px solid;
+			border-color: transparent;
+		}		
+		&:hover,
+		&.current-menu-item{	
+			& a{
+				border-color: var(--black);
+			}		
+		}
+	}	
+}
+

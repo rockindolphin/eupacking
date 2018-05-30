@@ -18,6 +18,7 @@
 	padding-bottom: 6px;
 	transition: background-color var(--anim-dur) ease-out;
 	text-decoration: none;
+	margin-bottom: 80px;
 	&:hover{
 		background-color: var(--green_c8d);
 		& .tile__icon{
@@ -49,6 +50,15 @@
 	& .tile__title{
 		text-transform: uppercase;
 		font-weight: var(--fw-extra-bold);
+	}
+	@media (--sm-viewport){
+	
+	}
+	@media (--md-viewport){
+
+	}
+	@media (--lg-viewport){
+
 	}		
 }
 

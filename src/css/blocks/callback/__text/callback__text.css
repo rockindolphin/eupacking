@@ -2,6 +2,16 @@
 .callback__text{
 	font-size: 20px;
 	font-weight: var(--fw-extra-bold);
-	margin-right: 35px;
+	margin-bottom: 5px;
+	@media (--sm-viewport){
+		margin-right: 35px;
+		margin-bottom: 0px;
+	}
+	@media (--md-viewport){
+
+	}
+	@media (--lg-viewport){
+
+	}	
 }
 

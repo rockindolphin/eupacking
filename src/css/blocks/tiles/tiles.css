@@ -2,8 +2,19 @@
 .tiles{
 	width: 100%;
 	display: flex;
-	flex-direction: row;
-	align-items: stretch;
-	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+	justify-content: stretch;
+	@media (--sm-viewport){
+	
+	}
+	@media (--md-viewport){
+	}
+	@media (--lg-viewport){
+		flex-direction: row;
+		align-items: stretch;
+		justify-content: space-between;	
+	
+	}	
 }
 

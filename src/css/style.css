@@ -3,7 +3,7 @@
 	/*Variables*/
 	--wrapper-max: 		1170px; 
 	--page-gap: 		15px;  
-	--page-min: 		1100px;  
+	--page-min: 		0;/*1100px*/  
 	--scrollbar-width:  0px;
 	--anim-dur:  		0.4s;
 

@@ -1,7 +1,7 @@
 
 .blog--columns{
-	column-count: 2;
-	column-gap: 35px;
+	column-count: 1;
+	column-gap: 0;
 	column-fill: balance;
 	&>*{
 		break-inside: avoid-column;
@@ -9,5 +9,15 @@
 			margin-top: 0;
 		}
 	}
+	@media (--sm-viewport){
+			
+	}
+	@media (--md-viewport){
+		column-count: 2;
+		column-gap: 35px;								
+	}
+	@media (--lg-viewport){
+										
+	}	
 }
 

@@ -2,16 +2,31 @@
 .header__nav{
 	color: var(--green_879);
 	& li{
+		margin-bottom: 10px;
 		&:hover,
 		&.current-menu-item{
-			transform: translateY(50%);
-			transform: translateY( -48% );
 			color: var(--black);
-			& a{
-				border-bottom: 2px solid;
-				border-color: var(--black);
-			}		
 		}
-	}		
+	}
+	@media (--sm-viewport){
+	
+	}
+	@media (--md-viewport){
+	
+	}
+	@media (--lg-viewport){
+		& li{
+			margin-bottom: 0px;
+			&:hover,
+			&.current-menu-item{
+				transform: translateY(50%);
+				transform: translateY( -48% );		
+				& a{
+					border-bottom: 2px solid;
+					border-color: var(--black);
+				}		
+			}
+		}
+	}			
 }
 

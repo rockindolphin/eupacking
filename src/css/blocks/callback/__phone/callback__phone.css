@@ -1,6 +1,15 @@
 
 .callback__phone{
-	font-size: 42px;
-	margin-right: 35px;
+	font-size: 24px;
+	@media (--sm-viewport){
+		font-size: 30px;
+		margin-right: 35px;	
+	}
+	@media (--md-viewport){
+		font-size: 36px;						
+	}
+	@media (--lg-viewport){
+		font-size: 42px;								
+	}
 }
 

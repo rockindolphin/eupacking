@@ -1,5 +1,8 @@
 
 .tile--product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;	
 	margin-bottom: 10px;
 	& .tile__pic{
 		width: 100%;
@@ -34,6 +37,19 @@
 		font-weight: var(--fw-bold);
 		line-height: 1;
 		color: var(--black);
+		text-align: center;
+	}
+	@media (--sm-viewport){
+			
+	}
+	@media (--md-viewport){
+								
+	}
+	@media (--lg-viewport){
+		& .tile__title{
+			text-align: left;
+			width: 100%;
+		}										
 	}	
 }
 
