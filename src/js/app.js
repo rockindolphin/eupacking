@@ -72,6 +72,12 @@
 			}
 		});
 
+		$('#mobile-menu-toggle').click(function(){
+			var is_open = $('#mobile-menu').hasClass('menu--open');
+			$('#mobile-menu').toggleClass('menu--open', !is_open);
+			is_open ? enablePageScroll() : disablePageScroll();
+		});
+
 		//slider
 		$('.slider--products').each(function(){
 			var mySwiper = new Swiper(this, {

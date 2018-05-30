@@ -1,7 +1,8 @@
 
 .menu--mobile{
-	position: absolute;
-	top: 0;
+	display: none;
+	position: fixed;
+	top: -100vh;
 	left: 0;
 	width: 100%;
 	background-color: var(--white);
@@ -12,13 +13,27 @@
 	padding-right: var(--page-gap);
 	padding-top: 60px;
 	padding-bottom: 60px;
-	& .btn--menu{
-		position: absolute;
+	display: flex;
+	transition: top var(--anim-dur);
+	@nest .menu--open & {
+		display: block;
 		top: 0;
-		right: var(--page-gap);
+	}
+	& .menu__wrapper{
+		max-width: 250px;
+		margin: 0 auto;
 	}
 	& .header__nav{
 		flex-direction: column;
+		align-items: flex-start;
+		margin-bottom: 30px;
+		& li{
+			margin-left: 0;
+			margin-right: 0;
+		}
+		& a{
+			padding: 0;
+		}
 	}
 	& li{
 		& a{
@@ -31,6 +46,15 @@
 				border-color: var(--black);
 			}		
 		}
-	}	
+	}
+	@media (--sm-viewport){
+			
+	}
+	@media (--md-viewport){
+								
+	}
+	@media (--lg-viewport){
+		display: none !important;									
+	}		
 }
 

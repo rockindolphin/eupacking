@@ -7,27 +7,27 @@
 		&::before{
 			content: '';
 			display: block;
-			padding-top: calc( (100vw - 15px -15px - 30px*0)/1 );
+			padding-top: calc( (100% - 30px*0)/1 );
 		}
 	}
 	@media (--sm-viewport){
 		& .slider__btn-wrapper{
 			&::before{
-				padding-top: calc( (100vw - 15px -15px - 30px*1)/2 );
+				padding-top: calc( (100% - 30px*1)/2 );
 			}
 		}			
 	}
 	@media (--md-viewport){
 		& .slider__btn-wrapper{
 			&::before{
-				padding-top: calc( (100vw - 15px -15px - 30px*2)/3 );
+				padding-top: calc( (100% - 30px*2)/3 );
 			}
 		}								
 	}
 	@media (--lg-viewport){
 		& .slider__btn-wrapper{
 			&::before{
-				padding-top: calc( (100vw - 15px -15px - 30px*3)/4 );
+				padding-top: calc( (100% - 30px*3)/4 );
 			}
 		}										
 	}	
