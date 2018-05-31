@@ -4,52 +4,7 @@ html(lang="ru")
 	+head()
 	body.page
 		.page__body
-			//-include ./partials/header.pug
-			header.page__header
-				.page__wrapper
-					.header__top
-						a.header__logo(href='index.html')
-							img(src='images/header-logo.png', alt='logo')
-					.header__bottom
-						.header__left
-							ul.nav.header__nav
-								li
-									a(href='about_company.html') О Компании
-								li
-									a(href='work_examples.html') Наши работы
-						a.header__logo(href='index.html')
-							img(src='images/header-logo-text.png', alt='logo')
-						.header__right
-							ul.nav.header__nav
-								li
-									a(href='capabilities.html') Возможности
-								li
-									a(href='design_office.html') Дизайн-бюро
-					#mobile-menu.menu
-						#mobile-menu-toggle.btn--menu
-						.menu--mobile
-							.menu__wrapper
-								ul.nav.header__nav
-									li
-										a(href='about_company.html') О Компании
-									li
-										a(href='work_examples.html') Наши работы
-									li
-										a(href='capabilities.html') Возможности
-									li
-										a(href='design_office.html') Дизайн-бюро
-								.d-block.mb-2
-									.d-block Звоните нам
-									.d-block
-										a(href="tel:+74965670259") +7 496 567-02-59
-								.d-block.mb-2 
-									.d-block Пишите нам
-									.d-block
-										a(href="mailto:info@eupacking.ru") info@eupacking.ru
-								.d-block.mb-2
-									.d-block Приезжаейте к нам
-									.d-block
-										address г. Королёв, ул. Калининградская, дом 15
+			include ./partials/header.pug
 			main.page__main
 				section.section.section--green-grad
 					.page__wrapper
@@ -66,25 +21,25 @@ html(lang="ru")
 						br
 				section.section
 					.page__wrapper
-						h2.fs--38.mt-0.mb-4.text-center Производство упаковки на заказ
+						h2.mt-0.mb-4.text-center.fs-lg-1 Производство упаковки на заказ
 						ul.list.list--flex
 							li.list__item
-								h4.item__header Качество
+								h6.mt-0.mb-2.font-weight-extra-bold.text-uppercase Качество
 								.item__body
 									p
 										| Специалисты Группы Евроупак более 10 лет занимаются изготовлением и продажи упаковки из картона. Мы делаем коробки любой формы и размера на заказ — от небольших эксклюзивных партий до многотысячных в едином фирменном стиле. Вся наша продукция изготавливается под постоянным, профессиональным контролем. Мы ценим свою репутацию и репутацию наших партнеров.
 							li.list__item
-								h4.item__header Возможности
+								h6.mt-0.mb-2.font-weight-extra-bold.text-uppercase Возможности
 								.item__body
 									p
 										| Мы изготавливаем упаковку с использованием большинства современных технологий: офсетная печать, печать на металлизированном картоне, каширование, нанесением УФ, трафаретных и twin-лаков, голографическую печать. Мы предоставляем весь спектр услуг по производству упаковки от разработки дизайна и конструкции до профессионального сопровождения на каждом этапе производственного процесса. Мы экономим Ваше время и средства.
 							li.list__item
-								h4.item__header Стоимость
+								h6.mt-0.mb-2.font-weight-extra-bold.text-uppercase Стоимость
 								.item__body
 									p
 										| Используя ресурсы Группы Евроупак, Вы получаете неизменно высокое качество услуг по их реальной рыночной стоимости. Наши площадки производят продукцию, не включая расходы на привлечение и предпечатную подготовку заказа, что позволяет сохранить привлекательный уровень цен конечной продукции.
 							li.list__item
-								h4.item__header Гарантии
+								h6.mt-0.mb-2.font-weight-extra-bold.text-uppercase Гарантии
 								.item__body
 									p
 										| Мы производим упаковку в соответствии с международными стандартами качества, используя только лучшие материалы. Обязательно предоставляем тестовую партию для испытания на Вашем оборудовании во избежание рисков.

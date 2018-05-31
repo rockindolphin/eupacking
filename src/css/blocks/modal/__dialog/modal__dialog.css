@@ -3,7 +3,6 @@
 	position: relative;
 	border: 2px solid;
 	border-color: var(--black);
-	min-width: 340px;
 	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 	background-color: var(--white);
 }

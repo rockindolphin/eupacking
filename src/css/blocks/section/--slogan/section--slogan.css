@@ -2,7 +2,16 @@
 .section--slogan{
 	padding-top: 50px;
 	padding-bottom: 50px;
-	font-size: 36px;
+	font-size: 22px;
 	font-weight: var(--fw-bold);
+	@media (--sm-viewport){
+		font-size: 26px;	
+	}
+	@media (--md-viewport){
+		font-size: 32px;						
+	}
+	@media (--lg-viewport){
+		font-size: 36px;								
+	}	
 }
 

@@ -11,7 +11,7 @@ mixin slider(count, sectionClass)
 	- var sc = {class : sectionClass};
 	section.section.section--slider()&attributes(sc)
 		.page__wrapper
-			h3.fs-1.text-center.mt-0 Фармацевтика, косметика, парфюмерия
+			h1.fs-lg-1.text-center.mt-0 Фармацевтика, косметика, парфюмерия
 			.swiper-container.slider.slider--products
 				.swiper-wrapper
 					- var i = 0;
@@ -28,5 +28,9 @@ mixin slider(count, sectionClass)
 									.tile__title=titles[i%4]
 						- i++
 				.slider__btn-wrapper
+					.slider__stub
+					.slider__stub
+					.slider__stub
+					.slider__stub
 					.swiper-button-prev.slider__btn.slider__btn--prev
 					.swiper-button-next.slider__btn.slider__btn--next
