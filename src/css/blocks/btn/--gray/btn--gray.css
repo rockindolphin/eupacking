@@ -1,0 +1,12 @@
+
+.btn--gray{
+	text-transform: uppercase;
+	border-color: var(--black);
+	background-color: var(--gray_272);
+	color: var(--white);
+	&:hover{
+		color: var(--black);
+		background-color: var(--white);
+	}
+}
+

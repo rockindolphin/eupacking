@@ -220,4 +220,7 @@ address{
   color: var(--black);
 }
 
-
+/* utilites class */
+.row{
+	max-width: none;
+}

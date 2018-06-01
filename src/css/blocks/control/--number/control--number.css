@@ -1,0 +1,22 @@
+
+.control--number{
+	&.control--custom{
+		display: flex;
+		& .control__replacer{
+			width: 28px;
+			height: 30px;
+			border-top: 2px solid;
+			border-bottom: 2px solid;
+			border-color: var(--black);
+			outline: none;
+			line-height: 30px;
+			text-align: center;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			font-weight: var(--fw-bold);
+			font-size: 12px;
+		}
+	}
+}
+

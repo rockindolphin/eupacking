@@ -42,6 +42,9 @@ const src = path.resolve(__dirname, 'src');
 const dist = path.resolve(__dirname, 'dist');
 const config = require('./tasks_config.json');
 const browsers = ['last 2 versions','ie >= 11','> 1%'];
+var IDs= {};
+var IDcount= 0;
+
 
 function err_log(error) {
 	console.log([
@@ -59,7 +62,7 @@ function err_log(error) {
 function pugToHtml(filepath){
 	miss.pipe(
 		gulp.src( filepath ),
-		pug({pretty: '\t', doctype: 'html', locals: {config: config, path: path, gulp: gulp, rename: rename, del: del, images: images}}),
+		pug({pretty: '\t', doctype: 'html', locals: {config: config, path: path, gulp: gulp, rename: rename, del: del, images: images, IDs: IDs, IDcount: IDcount}}),
 		//w3cjs(),
 		//w3cjs.reporter(),
 		/*through2.obj(function(file, enc, cb){
@@ -234,6 +237,7 @@ gulp.task('css', function(){
 			path.resolve(cssPath, 'vendors', 'normalize.css'),
 			path.resolve(cssPath, 'vendors', 'swiper.css'),
 			path.resolve(cssPath, 'vendors', 'lightbox.css'),
+			path.resolve(cssPath, 'vendors', 'select2.css'),
 			path.resolve(cssPath, 'style.css'),
 			path.resolve(cssPath, 'blocks', '**', '*.css')
 		]),

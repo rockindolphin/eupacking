@@ -1,0 +1,40 @@
+
+.control--custom{
+	position: relative;
+	display: block;
+	margin-bottom: 1rem;
+	& .control__input{
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+		&:checked{
+			& + .control__label{
+				&::after{
+					display: block;
+				}
+			}		
+		}
+		&:disabled{
+			& + .control__label{
+				opacity: 0.5;
+			}		
+		}
+	}
+	& .control__label{
+		display: block;
+		user-select: none;
+		&::before,
+		&::after{
+			content: '';
+			position: absolute;
+			left: 0;
+		}
+		&::before{
+			display: block;
+		}
+		&::after{
+			display: none;
+		}
+	}
+}
+

@@ -61,6 +61,7 @@
 		}
 		& .footer__left,
 		& .footer__right{
+			flex-direction: row;
 			margin-right: 0;
 			max-width: calc(50% - 38px); /* -106/2 - 65 px*/	
 		}		

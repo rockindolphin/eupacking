@@ -1,10 +1,18 @@
 
 .footer__logo{
-	margin-left: 65px;
-	margin-right: 65px;
 	flex-shrink: 0;
 	& img{
 		display: block;
-	}	
+	}
+	@media (--sm-viewport){
+			
+	}
+	@media (--md-viewport){
+		margin-left: 45px;
+		margin-right: 45px;	
+	}
+	@media (--lg-viewport){
+										
+	}		
 }
 

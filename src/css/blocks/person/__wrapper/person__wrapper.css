@@ -21,8 +21,10 @@
 	@media (--md-viewport){
 		min-height: 300px;	
 		flex-direction: row;
+		overflow: hidden;
 		& .person__pic{
 			order:  1;
+			margin-top: -20px;
 		}	
 		& .person__text{
 			order:  2;

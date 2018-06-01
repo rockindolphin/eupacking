@@ -1,0 +1,26 @@
+
+.form--constructor{
+	border: 2px solid;
+	border-color: var(--black);
+	background-color: var(--white);
+	max-width: 384px;
+	& .form__body{
+		
+	}
+	& .form__footer{
+		padding-left:  0;
+		padding-right:  0;
+		& .btn{
+			border-left: none;
+			margin-bottom: -2px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
+	& label{
+		font-size: 12px;
+		text-transform: uppercase;
+		font-weight: var(--fw-bold);
+	}
+}
+

@@ -1,0 +1,11 @@
+
+.btn--minus{
+	padding:  0;
+	width: 30px;
+	height: 30px;
+	background-color: var(--black);
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAABBJREFUCNdjwAr+/wchbAAAX9AD/fTOHdkAAAAASUVORK5CYII=');
+	background-position: center; 
+	background-repeat: no-repeat; 
+}
+

@@ -139,6 +139,69 @@
 			}
 		});
 
+
+		//select2
+		function resizeDropDown(dropdownContainer, dropdown, selection){
+			var shift = $(dropdownContainer).position().left || $(dropdownContainer).position().right;
+			$(dropdown).css({
+				maxWidth: ($(window).innerWidth() - shift),
+				minWidth: $(selection).outerWidth(),
+			});
+			$(dropdownContainer).css({
+				maxWidth: ($(window).innerWidth() - shift),
+			});
+		}
+
+		$('select.select2').each(function(){
+			$(this).select2({
+				minimumResultsForSearch: -1,
+			})
+			.on('select2:open', function(){
+				var s2 = $(this).data().select2;
+				resizeDropDown(s2.dropdown.$dropdownContainer, s2.dropdown.$dropdown, s2.$selection);
+			});
+		});
+
+		//custom number
+		$('.control--custom.control--number').each(function(){
+			var $input = $(this).find('.control__input');
+			var min = parseInt( $input.attr('min') );
+			var max = parseInt( $input.attr('max') );
+			var $replacer = $(this).find('.control__replacer');
+			$replacer.text( $input.val() );
+
+			function validate(min, max, val){
+				val = val > max ? max : val;
+				val = val < min ? min : val;
+				return val;
+			}
+
+			function btnHandler(evt, diff){
+				evt.preventDefault();
+				var input = parseInt($input.val()) || 0;
+				var value = validate(min, max, input+diff );
+				$input.val(value);
+				$replacer.text( value );
+			}
+			$(this).find('.btn--minus').click(function(evt){
+				btnHandler(evt, -1);
+			});
+
+			$(this).find('.btn--plus').click(function(evt){
+				btnHandler(evt, 1);
+			});
+
+			$replacer.on('input', function(e){
+				var input = parseInt( $(this).text().replace(/\D/g,'') );
+				var value = '';
+				if( input || input == 0 ){
+					value = validate(min, max, input );
+				}
+				$(this).text(value);
+				$input.val(value);
+			});
+		});
+
 	});	
 
 })(jQuery);

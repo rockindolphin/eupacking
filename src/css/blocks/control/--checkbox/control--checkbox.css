@@ -1,0 +1,29 @@
+
+.control--checkbox{
+	&.control--custom{
+		padding-left: 30px;
+		& .control__input{
+
+		}
+		& .control__label{
+			&::before,
+			&::after{
+				top: calc(0.5em - 11px);
+				width: 19px;
+				height: 19px;
+				border: 2px solid;
+				border-color: var(--black);
+				background-color: var(--white);
+			}
+			&::before{
+
+			}
+			&::after{
+				background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAASFBMVEUAAACHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmHmZmlECFUAAAAF3RSTlMA+fQGp45uPgqxXktFM8O5t5uAUzksD+0oVTsAAABaSURBVBjTlcxLEoAgDAPQKoL4wb/m/je1teigK8mCzGMIlJnwsYN7uQUQUhfAwn1Yf3llW24/YDLcXTTtJdAY6tmzTje+qWo5KEaAxCTPZXZTPxzVz8p5+p0TEKQECem8rsoAAAAASUVORK5CYII=');
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+}
+
