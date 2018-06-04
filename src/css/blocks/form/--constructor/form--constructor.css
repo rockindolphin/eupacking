@@ -4,17 +4,25 @@
 	border-color: var(--black);
 	background-color: var(--white);
 	max-width: 384px;
+	margin-left: auto;
+	margin-right: auto;
 	& .form__body{
 		
 	}
 	& .form__footer{
 		padding-left:  0;
 		padding-right:  0;
+		& .col{
+			flex-basis: 100%;
+		}
 		& .btn{
 			border-left: none;
+			border-right: none;
 			margin-bottom: -2px;
 			padding-left: 10px;
 			padding-right: 10px;
+			display: block;
+			width: 100%;
 		}
 	}
 	& label{
@@ -22,5 +30,27 @@
 		text-transform: uppercase;
 		font-weight: var(--fw-bold);
 	}
+	@media (--sm-viewport){
+		margin-left: 0;
+		margin-right: 20px;
+		& .form__footer{
+			& .row{
+				flex-wrap: nowrap;
+			}
+			& .col{
+				flex-basis: 0;
+			}
+			& .btn{
+				border-right: 2px solid;
+				border-color: var(--black);
+			}
+		}	
+	}
+	@media (--md-viewport){
+								
+	}
+	@media (--lg-viewport){
+										
+	}	
 }
 

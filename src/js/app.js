@@ -160,16 +160,16 @@
 				var s2 = $(this).data().select2;
 				resizeDropDown(s2.dropdown.$dropdownContainer, s2.dropdown.$dropdown, s2.$selection);
 			});
+			//copy classes to select2 container
+			var classList = [].filter.call(this.classList, function(item){
+				return ( item !== 'select2' && item !== 'select2-hidden-accessible' );
+			});
+			var container = $(this).data().select2.$container;
+			$(container).addClass( classList.join(' ') );			
 		});
 
 		//custom number
 		$('.control--custom.control--number').each(function(){
-			var $input = $(this).find('.control__input');
-			var min = parseInt( $input.attr('min') );
-			var max = parseInt( $input.attr('max') );
-			var $replacer = $(this).find('.control__replacer');
-			$replacer.text( $input.val() );
-
 			function validate(min, max, val){
 				val = val > max ? max : val;
 				val = val < min ? min : val;
@@ -183,10 +183,17 @@
 				$input.val(value);
 				$replacer.text( value );
 			}
+
+			var $input = $(this).find('.control__input');
+			var min = parseInt( $input.attr('min') );
+			var max = parseInt( $input.attr('max') );
+			var $replacer = $(this).find('.control__replacer');
+
+			$replacer.text( $input.val() );
+
 			$(this).find('.btn--minus').click(function(evt){
 				btnHandler(evt, -1);
 			});
-
 			$(this).find('.btn--plus').click(function(evt){
 				btnHandler(evt, 1);
 			});
@@ -200,7 +207,16 @@
 				$(this).text(value);
 				$input.val(value);
 			});
+
+			$input.on('change', function(){
+				var input = parseInt($(this).val()) || 0;
+				var value = validate(min, max, input );
+				$replacer.text( value );				
+			});
 		});
+
+		window.eupacking = {};
+		window.eupacking.toggleModal = toggleModal;
 
 	});	
 

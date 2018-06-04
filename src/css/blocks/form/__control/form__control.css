@@ -10,5 +10,10 @@
 		padding-top: 10px;
 		padding-bottom: 10px;		
 	}
+	&:disabled{
+		& ~ .control__label{
+			opacity: 0.5;
+		}		
+	}
 }
 

@@ -1,0 +1,27 @@
+
+.constructor__wrapper{
+	display: flex;
+	flex-direction: column;
+	& .constructor__preview{
+		order: 1;
+	}
+	& .form--constructor{
+		order: 2;
+	}
+	@media (--sm-viewport){
+			
+	}
+	@media (--md-viewport){
+		flex-direction: row;
+		& .constructor__preview{
+			order: 0;
+		}
+		& .form--constructor{
+			order: 0;
+		}							
+	}
+	@media (--lg-viewport){
+										
+	}	
+}
+

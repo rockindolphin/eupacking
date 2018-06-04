@@ -179,8 +179,9 @@
 	right: auto;
 }
 .select2-container--default.select2-container--disabled .select2-selection--single {
-	background-color: #eee;
+	/*background-color: #eee;*/
 	cursor: default;
+	opacity: 0.5;
 }
 .select2-container--default.select2-container--disabled .select2-selection--single .select2-selection__clear {
 	display: none;
@@ -329,4 +330,12 @@
 	cursor: default;
 	display: block;
 	padding: 6px;
+}
+
+.select2-container.form__control{
+	border:  none;
+	font-size: 1rem;
+	min-height: 0;
+	padding-left: 0;
+	padding-right: 0;
 }
