@@ -39,7 +39,26 @@
 				gray: 0xcccccc,			
 				browngray: 0xdcd6d2,			
 			},
-			textures: '/images/textures/',
+			texturesPath: '/images/textures/',
+			textures: {
+				bg: 				false,
+				bg_alpha: 			false,
+				bg_laminating: 		false,
+				bg_notch_windows: 	false,
+				fullcolor: 			false,
+				embossing: 			false,
+				embossing_bw: 		false,
+				embossing_gold: 	false,
+				embossing_map: 		false,
+				congreve: 			false,
+				partial_polish: 	false,
+			},
+			materials: {
+				alpha: false,
+				bg: false,
+				simple: false,
+				embossing: false,
+			}
 		}
 
 		function getFormData(){
@@ -119,6 +138,55 @@
 			return html;
 		}
 
+		//bg
+		function setMaterialBgShininess(shininess){
+			boxConfig.materials.bg.shininess = shininess;
+		}
+
+		function setMaterialBgColor(color){
+			boxConfig.materials.bg.color.setHex( boxConfig.colors[color] );
+		}
+
+		function setMaterialBgMap(texture){
+			boxConfig.materials.bg.map = texture;
+		}
+
+		//alpha
+		function setMaterialAlphaColor(color){
+			boxConfig.materials.alpha.color.setHex( boxConfig.colors[color] );  
+		}
+
+		function setMaterialAlphaMap(texture){
+			boxConfig.materials.alpha.map = texture; 
+		}
+
+		//simple
+		function setMaterialShininess(shininess){
+			boxConfig.materials.simple.shininess =  shininess
+		}
+
+		function setMaterialBumpMap(texture){
+			boxConfig.materials.simple.bumpMap = texture;
+		}
+
+		//embossing
+		function setMaterialEmbossingMap(texture){
+			boxConfig.materials.embossing.map = texture;
+		}
+
+		function setMaterialEmbossingBumpMap(texture){
+			boxConfig.materials.embossing.bumpMap = texture;
+		}
+
+		function setMaterialEmbossingShininess(shininess){
+			boxConfig.materials.embossing.shininess = shininess;
+		}
+
+		//texture_shine
+		function setTextureShinine(shinine){
+			texture_shine = shinine;
+		}
+
 		//Материал: Марка
 		$('#mark').each(function(){
 			$(this).empty().trigger("change");
@@ -137,7 +205,7 @@
 					$density.append(option);
 				});
 				$density.trigger('change');
-				//changeBoxColor( paperConfig[val]['color'] );
+				setMaterialAlphaColor( paperConfig[val]['color'] );
 			});
 
 		});
@@ -158,11 +226,11 @@
 			$('#mark').prop('disabled', isChecked);
 			$('#density').prop('disabled', isChecked);
 			if( isChecked ){
-				material_alpha.map = textura_bg_kashyr;
-				material_alpha.color.setHex( boxConfig.colors.brown );
+				setMaterialAlphaMap( boxConfig.textures.bg_laminating )
+				setMaterialAlphaColor( 'brown' );
 			}else{
-				material_alpha.map = false;
-				material_alpha.color.setHex( boxConfig.colors.white );				
+				setMaterialAlphaMap( false )
+				setMaterialAlphaColor( 'white' );
 			}
 		});
 
@@ -171,11 +239,11 @@
 			var isChecked = $(this).prop('checked');
 			$('input[name=solid_polish]').prop('disabled', isChecked);
 			if( isChecked ){
-				material_bg.shininess = 120;
-				material_bg.color.setHex( boxConfig.colors.gray );
+				setMaterialBgShininess( 120 );
+				setMaterialBgColor( 'gray' );
 			}else{
-				material_bg.shininess = 20;
-				material_bg.color.setHex( boxConfig.colors.white );				
+				setMaterialBgShininess( 20 );
+				setMaterialBgColor( 'white' );			
 			}			
 		});
 
@@ -183,7 +251,7 @@
 		$('#fullcolor_pantone').change(function(){
 			var isChecked = $(this).prop('checked');
 			if( isChecked ){
-				material_tisnenie.map = textura_tesnenie;
+				setMaterialEmbossingMap( boxConfig.textures.embossing );
 			}			
 		});	
 
@@ -191,7 +259,7 @@
 		$('#fullcolor').change(function(){
 			var isChecked = $(this).prop('checked');
 			if( isChecked ){
-				material_tisnenie.map = textura_tesnenie_bw;
+				setMaterialEmbossingMap( boxConfig.textures.embossing_bw );
 			}			
 		});	
 
@@ -199,7 +267,7 @@
 		$('#pantone').change(function(){
 			var isChecked = $(this).prop('checked');
 			if( isChecked ){
-				material_tisnenie.map = textura_tesnenie;
+				setMaterialEmbossingMap( boxConfig.textures.embossing );
 			}			
 		});
 
@@ -207,12 +275,12 @@
 		$('#embossing').change(function(){
 			var isChecked = $(this).prop('checked');
 			if( isChecked ){
-				material_tisnenie.map = textura_tesnenie_gold;
-				material_tisnenie.bumpMap = textura_tesnenie_map;
-				material_tisnenie.shininess = 1000;
+				setMaterialEmbossingMap( boxConfig.textures.embossing_gold );
+				setMaterialEmbossingBumpMap( boxConfig.textures.embossing_map );
+				setMaterialEmbossingShininess( 1000 );
 			}else{
-				material_tisnenie.bumpMap = false;
-				material_tisnenie.shininess = material_bg.shininess;		
+				setMaterialEmbossingBumpMap( false );
+				setMaterialEmbossingShininess( boxConfig.materials.bg.shininess )		
 			}			
 		});						
 		
@@ -220,9 +288,9 @@
 		$('#notch_windows').change(function(){
 			var isChecked = $(this).prop('checked');
 			if( isChecked ){
-				material_bg.map = textura_bg_with_window;
+				setMaterialBgMap( boxConfig.textures.bg_notch_windows );
 			}else{
-				material_bg.map = textura_bg;			
+				setMaterialBgMap( boxConfig.textures.bg );
 			}			
 		});
 
@@ -230,9 +298,9 @@
 		$('#congreve').change(function(){
 			var isChecked = $(this).prop('checked');
 			if( isChecked ){
-				material.bumpMap = textura_kongrev;
+				setMaterialBumpMap( boxConfig.textures.congreve );
 			}else{
-				material.bumpMap = false;			
+				setMaterialBumpMap( false );			
 			}			
 		});
 
@@ -240,14 +308,14 @@
 		$('#solid_polish_glossy').change(function(){
 			var isChecked = $(this).prop('checked');
 			if( isChecked ){
-				material_bg.shininess = 500;
+				setMaterialBgShininess( 500 );
 			}			
 		});						
 		//Сплошной лак: Матовый
 		$('#solid_polish_matt').change(function(){
 			var isChecked = $(this).prop('checked');
 			if( isChecked ){
-				material_bg.shininess = 50;
+				setMaterialBgShininess( 50 )
 			}			
 		});
 		//Сплошной лак: Нет
@@ -255,7 +323,7 @@
 			var isChecked = $(this).prop('checked');
 			var isMetalChecked = $('#metal_cardboard').prop('checked');
 			if( isChecked && !isMetalChecked ){
-				material_bg.shininess = 20;
+				setMaterialBgShininess( 20 );
 			}			
 		});		
 
@@ -264,10 +332,10 @@
 			var isChecked = $(this).prop('checked');
 			var isCongreveChecked = $('#congreve').prop('checked');
 			if( isChecked ){
-				material.shininess = 500;
+				setMaterialShininess( 500 );
 			}			
 			if( !isCongreveChecked ){
-				material.bumpMap = textura_form_laq;
+				setMaterialBumpMap( boxConfig.textures.partial_polish );
 			}			
 		});
 
@@ -276,11 +344,11 @@
 			var isChecked = $(this).prop('checked');
 			var isCongreveChecked = $('#congreve').prop('checked');
 			if( isChecked ){
-				material.shininess = 50;
-				texture_shine = 50;
+				setMaterialShininess( 50 );
+				setTextureShinine( 50 );
 			}			
 			if( !isCongreveChecked ){
-				material.bumpMap = textura_form_laq;
+				setMaterialBumpMap( boxConfig.textures.partial_polish );
 			}			
 		});
 
@@ -288,7 +356,7 @@
 		$('#partial_polish_no').change(function(){
 			var isChecked = $(this).prop('checked');
 			if( isChecked ){
-				material.shininess = material_bg.shininess;
+				setMaterialShininess( boxConfig.materials.bg.shininess );
 			}			
 		});											
 
@@ -310,7 +378,7 @@
 			$('input[name=solid_polish]').prop('disabled', false);
 			$('#glue_points').val('1').trigger('change');
 
-			//changeBoxColor( paperConfig[val]['white'] );
+			setMaterialAlphaColor( 'white' );
 		});
 
 
@@ -318,8 +386,8 @@
 		window.temp = true; //???
 
 		var shine = 0;
-		var texture_shine=0;
-		var tesnenie_shine=0;
+		var texture_shine = 0;
+		var tesnenie_shine = 0;
 
 		var spin = 'left';
 		var controls, container;
@@ -331,6 +399,7 @@
 
 		var windowHalfX = window.innerWidth / 2;
 		var windowHalfY = window.innerHeight / 2;
+
 		// revolutions per second
 		var angularSpeed = 0.2; 
 		var lastTime = 0;	
@@ -339,7 +408,7 @@
 		var renderer = new THREE.WebGLRenderer({ alpha: true, antialias:true });
 		renderer.setSize(640, 700);
 		renderer.setClearColor(boxConfig.colors.white, 0);
-		renderer.shadowMapEnabled = true;
+		renderer.shadowMap.enabled = true;
 		container = document.getElementById('constructor__canvas');
 		container.appendChild(renderer.domElement);			
 
@@ -348,76 +417,47 @@
 		camera.position.z = 500;
 
 		// scene
-		var scene = new THREE.Scene();
-
-		// cube
-		var geometry = new THREE.BoxGeometry(70, 300, 220 ); 	
+		var scene = new THREE.Scene();	
 
 		//textures
-		var textura_bg_alpha = 				THREE.ImageUtils.loadTexture(boxConfig.textures + 'texture_bg_alpha.png');
+		var loader = new THREE.TextureLoader();
+		$.map(boxConfig.textures, function(value, key){
+			boxConfig.textures[key] = loader.load(boxConfig.texturesPath + key+'.png');
+		});
 
-		var textura_bg = 					THREE.ImageUtils.loadTexture(boxConfig.textures + 'texture_bg.png');
-		var textura_bg_kashyr = 			THREE.ImageUtils.loadTexture(boxConfig.textures + 'texture_bg_noise.png');
-		var textura_bg_with_window = 		THREE.ImageUtils.loadTexture(boxConfig.textures + 'texture_bg_notch_windows.png');
-
-		var textura = 						THREE.ImageUtils.loadTexture(boxConfig.textures + 'texture_fullcolor_new.png');
-		var textura_pantone_b = 			THREE.ImageUtils.loadTexture(boxConfig.textures + 'prosto_tcvet.png');
-		var textura_pantone = 				THREE.ImageUtils.loadTexture(boxConfig.textures + 'prosto_tcvet_new.png');
-		var textura_pantone_polnotsvet = 	THREE.ImageUtils.loadTexture(boxConfig.textures + 'tekstura_pantone_polnotsvet.png');
-
-		var textura_tesnenie = 				THREE.ImageUtils.loadTexture(boxConfig.textures + 'tisnenie_zolonoy_falgoy.png');
-		var textura_tesnenie_bw = 			THREE.ImageUtils.loadTexture(boxConfig.textures + 'tisnenie_zolonoy_falgoy_bw.png');
-		var textura_tesnenie_gold = 		THREE.ImageUtils.loadTexture(boxConfig.textures + 'tisnenie_zolonoy_falgoy_gold.png');
-		var textura_tesnenie_map = 			THREE.ImageUtils.loadTexture(boxConfig.textures + 'tisnenie_zolonoy_falgoy_noise.png');
-
-		var bump_map = 						THREE.ImageUtils.loadTexture(boxConfig.textures + 'bump_map.jpg');//рельефная карта
-
-		var textura_kongrev = 				THREE.ImageUtils.loadTexture(boxConfig.textures + 'textura_kongrev_bump_NRM.png');
-		var textura_form_laq = 				THREE.ImageUtils.loadTexture(boxConfig.textures + 'textura_form_laq_NRM.png');
-
-
-		//create layers
-		var background = textura_bg;
-		var beuty_layer = textura;
-		var kongrev_enable = textura_kongrev; 
-
-
-		/**** create materials ******/
-
-		var material_alpha = new THREE.MeshPhongMaterial({ 
+		//create materials
+		boxConfig.materials.alpha = new THREE.MeshPhongMaterial({ 
 			color: boxConfig.colors.white, 
-			alphaMap: textura_bg_alpha, 
+			alphaMap: boxConfig.textures.bg_alpha, 
 			alphaTest: 0.5, 
 			side: THREE.DoubleSide, 
 			map: false,
 		});
 
-		var material_bg = new THREE.MeshPhongMaterial({ 
-			map: background, 
+		boxConfig.materials.bg = new THREE.MeshPhongMaterial({ 
+			map: boxConfig.textures.bg, 
 			shininess: 20, 
 			transparent: true,
 		});
 
-		var material = new THREE.MeshPhongMaterial({ 
-			map: beuty_layer, 
-			bumpMap: kongrev_enable, 
+		boxConfig.materials.simple = new THREE.MeshPhongMaterial({ 
+			map: boxConfig.textures.fullcolor, 
+			bumpMap: boxConfig.textures.congreve, 
 			shininess: 20, 
 			transparent: true,
 		});
 
-		var material_tisnenie = new THREE.MeshPhongMaterial({ 
-			map: textura_tesnenie_bw, 
+		boxConfig.materials.embossing = new THREE.MeshPhongMaterial({ 
+			map: boxConfig.textures.embossing_bw, 
 			bumpMap: false, 
 			shininess: 20, 
 			transparent: true,
 		});
 
-		var arr_materials = [
-			material_alpha, 
-			material_bg, 
-			material, 
-			material_tisnenie
-		];
+		var materialsArr = [];
+		$.map(boxConfig.materials, function(material){
+			materialsArr.push(material);
+		});
 
 		var bricks = [
 			new THREE.Vector2(.138575, .214251),
@@ -456,6 +496,9 @@
 			new THREE.Vector2(.483457, .785264)
 		];
 
+		// cube
+		var geometry = new THREE.BoxGeometry(70, 300, 220 ); 
+
 		geometry.faceVertexUvs[0] = [];
 
 		geometry.faceVertexUvs[0][0] = [ bricks[3], bricks[0], bricks[2] ];
@@ -476,7 +519,7 @@
 		geometry.faceVertexUvs[0][10] = [ wood[3], wood[0], wood[2] ];
 		geometry.faceVertexUvs[0][11] = [ wood[0], wood[1], wood[2] ];
 
-		var cube = new THREE.SceneUtils.createMultiMaterialObject( geometry, arr_materials );
+		var cube = new THREE.SceneUtils.createMultiMaterialObject( geometry, materialsArr );
 
 		cube.overdraw = true;
 		cube.receiveShadow = true;
@@ -487,7 +530,7 @@
 		scene.add(cube);
 
 		//AMBIENT LIGHT
-		var ambLight = new THREE.HemisphereLight(boxConfig.colors.white,boxConfig.colors.white,0.7);
+		var ambLight = new THREE.HemisphereLight(boxConfig.colors.white, boxConfig.colors.white, 0.7);
 		scene.add(ambLight);
 
 		// add spotlight for the shadows
@@ -499,9 +542,7 @@
 		spotLight.shadowMapWidth = 1024;
 		spotLight.shadowMapHeight = 1024;
 		spotLight.lookAt(new THREE.Vector3(  0, 0, 0 ));
-
 		scene.add( spotLight ); 
-
 
 		var spotLight2 = new THREE.SpotLight( boxConfig.colors.white, 0.2, -50 );
 		spotLight2.position.set( 800, -350, 1000 );
@@ -521,7 +562,6 @@
 		animate();
 
 		function animate(){
-
 			if(window.temp){
 				cube.rotation.y += ( targetRotation - cube.rotation.y ) * 0.05;
 				window.targetRotation = targetRotation;
