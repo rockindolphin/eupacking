@@ -1,0 +1,21 @@
+#modalConstructorSend.modal.modal--constructor
+	.modal__dialog.container
+		button.btn.btn--close.form__close(data-toggle="modal", data-target="modalConstructorSend")
+		.row
+			.col-12.col-sm-8
+				table#constructorTable.mb-3.mb-sm-0
+			.col-12.col-sm-4
+				form
+					.row.form__row.mb-5
+						.col-12.mb-3
+							label.form__label.d-block Ваше имя
+							input.form__control(type="text")
+						.col-12.mb-3
+							label.form__label.d-block E-mail
+							input.form__control(type="email")
+						.col-12.mb-3
+							label.form__label.d-block Телефон
+							input.form__control(type="tel")
+					.row.form__row
+						.col-12
+							input.btn.btn--green(type="submit", value="Отправить")

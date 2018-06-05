@@ -82,132 +82,132 @@ $("#drop_brand li").click(function(){
   if ($(this).text() == "Excellent Top"){
 	$("ul#drop_density").html("<li>215 г/м2<li>230 г/м2<li>250 г/м2<li>275 г/м2<li>300 г/м2<li>325 г/м2<li>350 г/м2<li>375 г/м2<li>400 г/м2<li>425 г/м2<li>450 г/м2");
 	$("#density").attr({'value':'215 г/м2'});
-	material_alpha.color.setHex(color_white);   
+	boxConfig.materials.alpha.color.setHex(color_white);   
   }
   if ($(this).text() == "Kromopak-GC2" || $(this).text() == "Kromoplex-GC2"){
 	$("#drop_density").html("<li>200 г/м2<li>215 г/м2<li>230 г/м2<li>245 г/м2<li>260 г/м2<li>275 г/м2<li>300 г/м2<li>325 г/м2<li>350 г/м2<li>375 г/м2<li>400 г/м2");
 	$("#density").attr({'value':'200 г/м2'});
-	material_alpha.color.setHex(color_white); 
+	boxConfig.materials.alpha.color.setHex(color_white); 
   }
   if ($(this).text() == "DELIGHT GLOSS"){
 	$("ul#drop_density").html("<li>190 г/м2<li>210 г/м2<li>230 г/м2<li>260 г/м2<li>310 г/м2<li>360 г/м2<li>400 г/м2");
 	$("#density").attr({'value':'190 г/м2'});
-	material_alpha.color.setHex(color_white);    
+	boxConfig.materials.alpha.color.setHex(color_white);    
   }
   if ($(this).text() == "SENATOR C2S Art Board"){
 	$("ul#drop_density").html("<li>230 г/м2<li>210 г/м2<li>250 г/м2<li>300 г/м2");
 	$("#density").attr({'value':'230 г/м2'});
-	material_alpha.color.setHex(color_white);    
+	boxConfig.materials.alpha.color.setHex(color_white);    
   }
   if ($(this).text() == "ALASKA PLUS GC2"){
 	$("ul#drop_density").html("<li>205 г/м2<li>220 г/м2<li>235 г/м2<li>255 г/м2<li>280 г/м2<li>305 г/м2<li>330 г/м2");
 	$("#density").attr({'value':'205 г/м2'});
-	material_alpha.color.setHex(color_white);    
+	boxConfig.materials.alpha.color.setHex(color_white);    
   }
   if ($(this).text() == "ATELIER GC-1"){
 	$("ul#drop_density").html("<li>220 г/м2<li>240 г/м2<li>260 г/м2<li>280 г/м2<li>300 г/м2<li>325 г/м2<li>350 г/м2");
 	$("#density").attr({'value':'220 г/м2'});
-	material_alpha.color.setHex(color_white);    
+	boxConfig.materials.alpha.color.setHex(color_white);    
   }
   if ($(this).text() == "SIMCOTE"){
 	$("ul#drop_density").html("<li>200 г/м2<li>210 г/м2<li>225 г/м2<li>235 г/м2<li>250 г/м2<li>260 г/м2<li>275 г/м2<li>290 г/м2<li>315 г/м2<li>340 г/м2");
 	$("#density").attr({'value':'200 г/м2'});
-	material_alpha.color.setHex(color_white);    
+	boxConfig.materials.alpha.color.setHex(color_white);    
   }
   if ($(this).text() == "NINGBO FOLD GC-1"){
 	$("ul#drop_density").html("<li>220 г/м2<li>230 г/м2<li>250 г/м2<li>270 г/м2<li>280 г/м2<li>300 г/м2<li>325 г/м2<li>350 г/м2<li>400 г/м2<li>440 г/м2<li>450 г/м2");
 	$("#density").attr({'value':'220 г/м2'});
-	material_alpha.color.setHex(color_white);    
+	boxConfig.materials.alpha.color.setHex(color_white);    
   }
   if ($(this).text() == "BRAVO GC-1"){
 	$("ul#drop_density").html("<li>210 г/м2<li>230 г/м2<li>250 г/м2<li>270 г/м2<li>300 г/м2<li>320 г/м2<li>350 г/м2<li>360 г/м2");
 	$("#density").attr({'value':'210 г/м2'});
-	material_alpha.color.setHex(color_white);
+	boxConfig.materials.alpha.color.setHex(color_white);
   }
   if ($(this).text() == "ARKTIKA GC-1"){
 	$("ul#drop_density").html("<li>200 г/м2<li>215 г/м2<li>230 г/м2<li>250 г/м2<li>275 г/м2<li>300 г/м2<li>325 г/м2<li>350 г/м2");
 	$("#density").attr({'value':'200 г/м2'});
-	material_alpha.color.setHex(color_white);
+	boxConfig.materials.alpha.color.setHex(color_white);
   }
   if ($(this).text() == "MAULE RC"){
 	$("ul#drop_density").html("<li>200 г/м2<li>225 г/м2<li>245 г/м2<li>260 г/м2<li>275 г/м2<li>295 г/м2<li>305 г/м2<li>325 г/м2<li>345 г/м2<li>365 г/м2<li>390 г/м2<li>420 г/м2");
 	$("#density").attr({'value':'200 г/м2'});
-	material_alpha.color.setHex(color_brown);    
+	boxConfig.materials.alpha.color.setHex(color_brown);    
   }
   if ($(this).text() == "Avanta prima"){
 	$("ul#drop_density").html("<li>200 г/м2<li>210 г/м2<li>220 г/м2<li>230 г/м2<li>245 г/м2<li>255 г/м2<li>270 г/м2<li>290 г/м2<li>315 г/м2<li>335 г/м2<li>360 г/м2");
 	$("#density").attr({'value':'200 г/м2'});
-	material_alpha.color.setHex(color_white);
+	boxConfig.materials.alpha.color.setHex(color_white);
   }
   if ($(this).text() == "Zenith (Manila back)"){
 	$("ul#drop_density").html("<li>235 г/м2<li>250 г/м2<li>270 г/м2<li>295 г/м2<li>325 г/м2<li>360 г/м2");
 	$("#density").attr({'value':'235 г/м2'});
-	material_alpha.color.setHex(color_white);    
+	boxConfig.materials.alpha.color.setHex(color_white);    
   }
   if ($(this).text() == "TAMBRITE"){
 	$("ul#drop_density").html("<li>200 г/м2<li>210 г/м2<li>220 г/м2<li>230 г/м2<li>240 г/м2<li>250 г/м2<li>260 г/м2<li>270 г/м2<li>285 г/м2<li>310 г/м2<li>335 г/м2");
 	$("#density").attr({'value':'200 г/м2'});
-	material_alpha.color.setHex(color_white);    
+	boxConfig.materials.alpha.color.setHex(color_white);    
   }   
   if ($(this).text() == "СКБ"){
 	$("ul#drop_density").html("<li>175 г/м2<li>195 г/м2<li>220 г/м2<li>235 г/м2<li>255 г/м2<li>290 г/м2<li>315 г/м2<li>350 г/м2<li>380 г/м2");
 	$("#density").attr({'value':'175 г/м2'});
-	material_alpha.color.setHex(color_brown);    
+	boxConfig.materials.alpha.color.setHex(color_brown);    
   }
   if ($(this).text() == "SVETOCOAT"){
 	$("ul#drop_density").html("<li>175 г/м2<li>200 г/м2<li>235 г/м2<li>280 г/м2<li>310 г/м2<li>330 г/м2");
 	$("#density").attr({'value':'175 г/м2'});
-	material_alpha.color.setHex(color_brown);    
+	boxConfig.materials.alpha.color.setHex(color_brown);    
   }   
   if ($(this).text() == "Unicolor-GD3" || $(this).text() == "Multicolor Mirabell-GD2"){
 	$("ul#drop_density").html("<li>230 г/м2<li>250 г/м2<li>280 г/м2<li>300 г/м2<li>320 г/м2<li>350 г/м2<li>380 г/м2<li>400 г/м2<li>420 г/м2<li>450 г/м2");
 	$("#density").attr({'value':'230 г/м2'});
-	material_alpha.color.setHex(color_grey);    
+	boxConfig.materials.alpha.color.setHex(color_grey);    
   }
   if ($(this).text() == "Veno Freeze-GD2"){
 	$("ul#drop_density").html("<li>250 г/м2<li>275 г/м2<li>300 г/м2<li>325 г/м2<li>350 г/м2<li>375 г/м2<li>400 г/м2");
 	$("#density").attr({'value':'250 г/м2'});
-	material_alpha.color.setHex(color_grey);    
+	boxConfig.materials.alpha.color.setHex(color_grey);    
   }
   if ($(this).text() == "SERVIBOARD GD-2"){
 	$("ul#drop_density").html("<li>280 г/м2<li>300 г/м2<li>320 г/м2<li>350 г/м2<li>380 г/м2<li>400 г/м2");
 	$("#density").attr({'value':'280 г/м2'});
-	material_alpha.color.setHex(color_grey);    
+	boxConfig.materials.alpha.color.setHex(color_grey);    
   }
   if ($(this).text() == "UMKA COLOR GD-2"){
 	$("ul#drop_density").html("<li>230 г/м2<li>250 г/м2<li>280 г/м2<li>300 г/м2<li>320 г/м2<li>350 г/м2<li>400 г/м2<li>450 г/м2<li>500 г/м2<li>550 г/м2");
 	$("#density").attr({'value':'230 г/м2'});
-	material_alpha.color.setHex(color_grey);    
+	boxConfig.materials.alpha.color.setHex(color_grey);    
   }
   if ($(this).text() == "НЕВА"){
 	$("ul#drop_density").html("<li>220 г/м2<li>240 г/м2<li>280 г/м2<li>300 г/м2<li>320 г/м2<li>350 г/м2<li>390 г/м2<li>420 г/м2<li>450 г/м2<li>480 г/м2");
 	$("#density").attr({'value':'220 г/м2'});
-	material_alpha.color.setHex(color_grey);    
+	boxConfig.materials.alpha.color.setHex(color_grey);    
   }
   if ($(this).text() == "Hansol Paper Co Ltd"){
 	$("ul#drop_density").html("<li>180 г/м2<li>200 г/м2<li>220 г/м2<li>230 г/м2<li>240 г/м2<li>250 г/м2<li>260 г/м2<li>280 г/м2<li>300 г/м2<li>330 г/м2<li>350 г/м2<li>400 г/м2<li>450 г/м2<li>500 г/м2");
 	$("#density").attr({'value':'180 г/м2'});
-	material_alpha.color.setHex(color_grey);    
+	boxConfig.materials.alpha.color.setHex(color_grey);    
   }
   if ($(this).text() == "Ecoprint-GT3"){
 	$("ul#drop_density").html("<li>220 г/м2<li>230 г/м2<li>250 г/м2<li>280 г/м2<li>300 г/м2<li>320 г/м2<li>350 г/м2<li>380 г/м2<li>400 г/м2<li>420 г/м2<li>450 г/м2");
 	$("#density").attr({'value':'220 г/м2'});
-	material_alpha.color.setHex(color_white);    
+	boxConfig.materials.alpha.color.setHex(color_white);    
   }
   if ($(this).text() == "Multicolor Belvedere-GT2"){
 	$("ul#drop_density").html("<li>230 г/м2<li>250 г/м2<li>280 г/м2<li>300 г/м2<li>320 г/м2<li>350 г/м2<li>380 г/м2<li>400 г/м2<li>420 г/м2<li>450 г/м2");
 	$("#density").attr({'value':'230 г/м2'});
-	material_alpha.color.setHex(color_white);    
+	boxConfig.materials.alpha.color.setHex(color_white);    
   }
   if ($(this).text() == "Topcolor-GT1"){
 	$("ul#drop_density").html("<li>250 г/м2<li>280 г/м2<li>300 г/м2<li>320 г/м2");
 	$("#density").attr({'value':'250 г/м2'});
-	material_alpha.color.setHex(color_white);    
+	boxConfig.materials.alpha.color.setHex(color_white);    
   }
   if ($(this).text() == "CONTIBOARD GT-1"){
 	$("ul#drop_density").html("<li>210 г/м2<li>230 г/м2<li>250 г/м2<li>275 г/м2<li>300 г/м2<li>320 г/м2<li>350 г/м2<li>400 г/м2");
 	$("#density").attr({'value':'210 г/м2'});
-	material_alpha.color.setHex(color_white);    
+	boxConfig.materials.alpha.color.setHex(color_white);    
   }       
 });
 
@@ -217,13 +217,13 @@ $("#drop_brand li").click(function(){
   if ($(this).text() == "XXXXXXXXXXXX"){
 	$("ul#drop_density").html("<li>XXX г/м2<li>XXX г/м2<li>XXX г/м2<li>XXX г/м2<li>XXX г/м2<li>XXX г/м2<li>XXX г/м2<li>XXX г/м2<li>XXX г/м2<li>XXX г/м2<li>XXX г/м2<li>XXX г/м2");
 	$("#density").attr({'value':'XXX г/м2'});
-	material_alpha.color.setHex(color_white);    
+	boxConfig.materials.alpha.color.setHex(color_white);    
   }   
 
 
-material_alpha.color.setHex(0xab8c69);
+boxConfig.materials.alpha.color.setHex(0xab8c69);
 
-material_alpha.color.setHex(0xdcd6d2);
+boxConfig.materials.alpha.color.setHex(0xdcd6d2);
 */
 
 $("#down_density").click(function(){
@@ -459,7 +459,7 @@ $('#reset').click(function(){
 	$('#brand').attr({'value':'Excellent Top'});
 	$("ul#drop_density").html("<li>215 г/м2<li>230 г/м2<li>250 г/м2<li>275 г/м2<li>300 г/м2<li>325 г/м2<li>350 г/м2<li>375 г/м2<li>400 г/м2<li>425 г/м2<li>450 г/м2");
 	$("#density").attr({'value':'215 г/м2'});
-	material_alpha.color.setHex(0xffffff);
+	boxConfig.materials.alpha.color.setHex(0xffffff);
 
 	$("#kashyr").removeClass('checkbox_cheked');
 	$("#metall").removeClass('checkbox_cheked');
@@ -533,8 +533,8 @@ function choose(){
 	$(".dropdown_list").slideUp();
 
 	if( $("#kashyr_input").attr('value') == "on" ){
-		material_alpha.map = textura_bg_kashyr;
-		material_alpha.color.setHex(color_brown);
+		boxConfig.materials.alpha.map = textura_bg_kashyr;
+		boxConfig.materials.alpha.color.setHex(color_brown);
 		$('#brand').attr({'value' : 'Лайнер'});
 		$('#density').attr({'value' : ''});
 		$("#marks_density span").css({'opacity':'0.5'});
@@ -543,20 +543,20 @@ function choose(){
 	}
 
 	if( $("#kashyr_input").attr('value') == "off" ){
-		material_alpha.map = false;
+		boxConfig.materials.alpha.map = false;
 		$('#brand').attr({'value' : 'Excellent Top'});
 		$("ul#drop_density").html('<li>215 г/м2<li>230 г/м2<li>250 г/м2<li>275 г/м2<li>300 г/м2<li>325 г/м2<li>350 г/м2<li>375 г/м2<li>400 г/м2<li>425 г/м2<li>450 г/м2');
 		$("#density").attr({'value':'215 г/м2'});
-		material_alpha.color.setHex(color_white);
+		boxConfig.materials.alpha.color.setHex(color_white);
 		$("#marks_density span").css({'opacity':'1'});
 		$("#marks_density h5").css({'opacity':'1'});      
 		$("#marks_density input").css({'opacity':'1'});      
 	}
 
 	if( $("#metall_input").attr('value') == "on" ){
-		//material_alpha.map = textura_bg_kashyr;
-		material_bg.shininess = 120;
-		material_bg.color.setHex(0xcccccc);
+		//boxConfig.materials.alpha.map = textura_bg_kashyr;
+		boxConfig.materials.bg.shininess = 120;
+		boxConfig.materials.bg.color.setHex(0xcccccc);
 		$("#solid_laq_input").attr({'value':'no_laq'});
 		$("#solid_laq span").removeClass('radio_buttom_cheked');
 		$('#no_laq').addClass('radio_buttom_cheked');
@@ -565,88 +565,88 @@ function choose(){
 	}
 
 	if( $("#metall_input").attr('value') == "off" ){
-		//material_alpha.map = false;
-		material_bg.shininess = 20;
-		material_bg.color.setHex(color_white);
+		//boxConfig.materials.alpha.map = false;
+		boxConfig.materials.bg.shininess = 20;
+		boxConfig.materials.bg.color.setHex(color_white);
 		$("#solid_laq span").css({'opacity':'1'});
 		$("#solid_laq h5").css({'opacity':'1'});      
 	}
 
 	if( $("#window_input").attr('value') == "on" ){
-		material_bg.map = textura_bg_with_window;
+		boxConfig.materials.bg.map = textura_bg_with_window;
 	}
 
 	if( $("#window_input").attr('value') == "off" ){
-		material_bg.map = textura_bg;
+		boxConfig.materials.bg.map = textura_bg;
 	}
 
 	if( $("#kongrev_input").attr('value') == "on" ){
-		material.bumpMap = textura_kongrev;
+		boxConfig.materials.simple.bumpMap = textura_kongrev;
 	}
 
 	if( $("#kongrev_input").attr('value') == "off" ){
-		material.bumpMap = false;      
+		boxConfig.materials.simple.bumpMap = false;      
 	}
 
 	if( $("#beuty_input").attr('value') == "polnotsvet_pantone" ){
-		material_tisnenie.map = textura_tesnenie;
+		boxConfig.materials.embossing.map = textura_tesnenie;
 		//material.map = textura_pantone_polnotsvet;
 	} 
 
 	if( $("#beuty_input").attr('value') == "polnotsvet" ){
-		material_tisnenie.map = textura_tesnenie_bw;
+		boxConfig.materials.embossing.map = textura_tesnenie_bw;
 	}
 
 	if( $("#beuty_input").attr('value') == "pantone" ){
-		material_tisnenie.map = textura_tesnenie;
+		boxConfig.materials.embossing.map = textura_tesnenie;
 	}
 
 	if( $("#solid_laq_input").attr('value')=="gloss" ){
-		material_bg.shininess = 500;      
+		boxConfig.materials.bg.shininess = 500;      
 	}
 
 	if( $("#solid_laq_input").attr('value')=="mat" ){
-		material_bg.shininess = 50;
+		boxConfig.materials.bg.shininess = 50;
 	}
 
 	if( $("#solid_laq_input").attr('value')=="no_laq" ){
 		if( $("#metall_input").attr('value') != "on" ){
-			material_bg.shininess = 20;
+			boxConfig.materials.bg.shininess = 20;
 		}
 	}
 
 	if( $("#form_laq_input").attr('value')=="gloss" ){
-		material.shininess = 500;
+		boxConfig.materials.simple.shininess = 500;
 		if( $("#kongrev_input").attr('value') != "on" ){
-			material.bumpMap = textura_form_laq;
+			boxConfig.materials.simple.bumpMap = textura_form_laq;
 		}
 	}
 
 	if( $("#form_laq_input").attr('value')=="mat" ){
-		material.shininess = 50;
+		boxConfig.materials.simple.shininess = 50;
 		texture_shine = 50;
 		if( $("#kongrev_input").attr('value') != "on" ){
-			material.bumpMap = textura_form_laq;
+			boxConfig.materials.simple.bumpMap = textura_form_laq;
 		}
 	}
 
 	if( $("#form_laq_input").attr('value')=="no_laq" ){
-		material.shininess = material_bg.shininess;
+		boxConfig.materials.simple.shininess = boxConfig.materials.bg.shininess;
 	}
 
 	if( $("#foil_input").attr('value') == "on" ){
-		material_tisnenie.map = textura_tesnenie_gold;
-		material_tisnenie.bumpMap = textura_tesnenie_map;
-		material_tisnenie.shininess = 1000;
+		boxConfig.materials.embossing.map = textura_tesnenie_gold;
+		boxConfig.materials.embossing.bumpMap = textura_tesnenie_map;
+		boxConfig.materials.embossing.shininess = 1000;
 	}else{
-		material_tisnenie.bumpMap = false;
-		material_tisnenie.shininess = material_bg.shininess;
+		boxConfig.materials.embossing.bumpMap = false;
+		boxConfig.materials.embossing.shininess = boxConfig.materials.bg.shininess;
 	}
 
-	material_alpha.needsUpdate = true;
-	material_bg.needsUpdate = true;
-	material.needsUpdate = true;
-	material_tisnenie.needsUpdate = true;
+	boxConfig.materials.alpha.needsUpdate = true;
+	boxConfig.materials.bg.needsUpdate = true;
+	boxConfig.materials.simple.needsUpdate = true;
+	boxConfig.materials.embossing.needsUpdate = true;
 
 	targetRotation += Math.PI;    
   }
@@ -729,35 +729,39 @@ function choose(){
 	var textura_form_laq =			loader.load( theme_path + 'partial_polish.png' );
 
 	//create materials
-	var material_alpha = new THREE.MeshPhongMaterial({ 
+	boxConfig.materials.alpha = new THREE.MeshPhongMaterial({ 
 		color: 0xffffff, 
 		alphaMap: textura_bg_alpha, 
 		alphaTest: 0.5, 
 		side: THREE.DoubleSide, 
 		map: false
 	});
-	var material_bg = new THREE.MeshPhongMaterial({ 
+
+	boxConfig.materials.bg = new THREE.MeshPhongMaterial({ 
 		map: textura_bg, 
 		shininess: 20, 
 		transparent: true
 	});
-	var material = new THREE.MeshPhongMaterial({ 
+	
+	boxConfig.materials.simple = new THREE.MeshPhongMaterial({ 
 		map: textura, 
 		bumpMap: textura_kongrev, 
 		shininess: 20, 
 		transparent: true
 	});
-	var material_tisnenie = new THREE.MeshPhongMaterial({ 
+	
+	boxConfig.materials.embossing = new THREE.MeshPhongMaterial({ 
 		map: textura_tesnenie_bw, 
 		bumpMap: false, 
 		shininess: 20, 
 		transparent: true
 	});
+
 	var arr_materials = [
-		material_alpha, 
-		material_bg, 
-		material, 
-		material_tisnenie
+		boxConfig.materials.alpha, 
+		boxConfig.materials.bg, 
+		boxConfig.materials.simple, 
+		boxConfig.materials.embossing
 	];
 
 	var bricks = [

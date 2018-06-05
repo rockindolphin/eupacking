@@ -199,8 +199,8 @@ gulp.task('server', [], () => {
 				server({ 
 					livereload: true,
 					defaultFile: 'index.html', 
-					open: false, 
-					directoryListing: false 
+					open: true, 
+					directoryListing: true 
 				}) 
 			);                  
 });

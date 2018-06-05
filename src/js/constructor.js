@@ -2,34 +2,35 @@
 	$(document).ready(function() {
 
 		var paperConfig = [
-			{ name: 'Excellent Top', 			color: 'white', 			density: [215, 230, 250, 275, 300, 325, 350, 375, 400, 425, 450] },
-			{ name: 'Kromopak-GC2', 			color: 'white', 			density: [200, 215, 230, 245, 260, 275, 300, 325, 350, 375, 400] },
-			{ name: 'Kromoplex-GC2', 			color: 'white', 			density: [200, 215, 230, 245, 260, 275, 300, 325, 350, 375, 400] },
-			{ name: 'DELIGHT GLOSS', 			color: 'white', 			density: [190, 210, 230, 260, 310, 360, 400] },
-			{ name: 'SENATOR C2S Art Board', 	color: 'white', 			density: [230, 210, 250, 300] },
-			{ name: 'ALASKA PLUS GC2', 			color: 'white', 			density: [205, 220, 235, 255, 280, 305, 330] },
-			{ name: 'ATELIER GC-1', 			color: 'white', 			density: [220, 240, 260, 280, 300, 325, 350] },
-			{ name: 'SIMCOTE', 					color: 'white', 			density: [200, 210, 225, 235, 250, 260, 275, 290, 315, 340] },
-			{ name: 'NINGBO FOLD GC-1', 		color: 'white', 			density: [220, 230, 250, 270, 280, 300, 325, 350, 400, 440, 450] },
-			{ name: 'BRAVO GC-1', 				color: 'white', 			density: [210, 230, 250, 270, 300, 320, 350, 360] },
-			{ name: 'ARKTIKA GC-1', 			color: 'white', 			density: [200, 215, 230, 250, 275, 300, 325, 350] },
-			{ name: 'MAULE RC', 				color: 'brown', 			density: [200, 225, 245, 260, 275, 295, 305, 325, 345, 365, 390, 420] },
-			{ name: 'Avanta prima', 			color: 'white', 			density: [200, 210, 220, 230, 245, 255, 270, 290, 315, 335, 360] },
-			{ name: 'Zenith (Manila back)', 	color: 'white', 			density: [235, 250, 270, 295, 325, 360] },
-			{ name: 'TAMBRITE', 				color: 'white', 			density: [200, 210, 220, 230, 240, 250, 260, 270, 285, 310, 335] },
-			{ name: 'СКБ', 						color: 'brown', 			density: [175, 195, 220, 235, 255, 290, 315, 350, 380] },
-			{ name: 'SVETOCOAT', 				color: 'brown', 			density: [175, 200, 235, 280, 310, 330] },
-			{ name: 'Unicolor-GD3', 			color: 'browngray', 		density: [230, 250, 280, 300, 320, 350, 380, 400, 420, 450] },
-			{ name: 'Multicolor Mirabell-GD2', 	color: 'browngray', 		density: [230, 250, 280, 300, 320, 350, 380, 400, 420, 450] },
-			{ name: 'Veno Freeze-GD2', 			color: 'browngray', 		density: [250, 275, 300, 325, 350, 375, 400] },
-			{ name: 'SERVIBOARD GD-2', 			color: 'browngray', 		density: [280, 300, 320, 350, 380, 400] },
-			{ name: 'UMKA COLOR GD-2', 			color: 'browngray', 		density: [230, 250, 280, 300, 320, 350, 400, 450, 500, 550] },
-			{ name: 'НЕВА', 					color: 'browngray', 		density: [220, 240, 280, 300, 320, 350, 390, 420, 450, 480] },
-			{ name: 'Hansol Paper Co Ltd', 		color: 'browngray', 		density: [180, 200, 220, 230, 240, 250, 260, 280, 300, 330, 350, 400, 450, 500] },
-			{ name: 'Ecoprint-GT3', 			color: 'white', 			density: [220, 230, 250, 280, 300, 320, 350, 380, 400, 420, 450] },
-			{ name: 'Multicolor Belvedere-GT2', color: 'white', 			density: [230, 250, 280, 300, 320, 350, 380, 400, 420, 450] },
-			{ name: 'Topcolor-GT1', 			color: 'white', 			density: [250, 280, 300, 320] },
-			{ name: 'CONTIBOARD GT-1', 			color: 'white', 			density: [210, 230, 250, 275, 300, 320, 350, 400] },
+			{ name: 'Excellent Top', 			color: 'white', 			density: [215, 230, 250, 275, 300, 325, 350, 375, 400, 425, 450], 					disabled: false },
+			{ name: 'Kromopak-GC2', 			color: 'white', 			density: [200, 215, 230, 245, 260, 275, 300, 325, 350, 375, 400], 					disabled: false },
+			{ name: 'Kromoplex-GC2', 			color: 'white', 			density: [200, 215, 230, 245, 260, 275, 300, 325, 350, 375, 400], 					disabled: false },
+			{ name: 'DELIGHT GLOSS', 			color: 'white', 			density: [190, 210, 230, 260, 310, 360, 400], 										disabled: false },
+			{ name: 'SENATOR C2S Art Board', 	color: 'white', 			density: [230, 210, 250, 300], 														disabled: false },
+			{ name: 'ALASKA PLUS GC2', 			color: 'white', 			density: [205, 220, 235, 255, 280, 305, 330], 										disabled: false },
+			{ name: 'ATELIER GC-1', 			color: 'white', 			density: [220, 240, 260, 280, 300, 325, 350], 										disabled: false },
+			{ name: 'SIMCOTE', 					color: 'white', 			density: [200, 210, 225, 235, 250, 260, 275, 290, 315, 340], 						disabled: false },
+			{ name: 'NINGBO FOLD GC-1', 		color: 'white', 			density: [220, 230, 250, 270, 280, 300, 325, 350, 400, 440, 450], 					disabled: false },
+			{ name: 'BRAVO GC-1', 				color: 'white', 			density: [210, 230, 250, 270, 300, 320, 350, 360], 									disabled: false },
+			{ name: 'ARKTIKA GC-1', 			color: 'white', 			density: [200, 215, 230, 250, 275, 300, 325, 350], 									disabled: false },
+			{ name: 'MAULE RC', 				color: 'brown', 			density: [200, 225, 245, 260, 275, 295, 305, 325, 345, 365, 390, 420], 				disabled: false },
+			{ name: 'Avanta prima', 			color: 'white', 			density: [200, 210, 220, 230, 245, 255, 270, 290, 315, 335, 360], 					disabled: false },
+			{ name: 'Zenith (Manila back)', 	color: 'white', 			density: [235, 250, 270, 295, 325, 360], 											disabled: false },
+			{ name: 'TAMBRITE', 				color: 'white', 			density: [200, 210, 220, 230, 240, 250, 260, 270, 285, 310, 335], 					disabled: false },
+			{ name: 'СКБ', 						color: 'brown', 			density: [175, 195, 220, 235, 255, 290, 315, 350, 380], 							disabled: false },
+			{ name: 'SVETOCOAT', 				color: 'brown', 			density: [175, 200, 235, 280, 310, 330], 											disabled: false },
+			{ name: 'Unicolor-GD3', 			color: 'browngray', 		density: [230, 250, 280, 300, 320, 350, 380, 400, 420, 450], 						disabled: false },
+			{ name: 'Multicolor Mirabell-GD2', 	color: 'browngray', 		density: [230, 250, 280, 300, 320, 350, 380, 400, 420, 450], 						disabled: false },
+			{ name: 'Veno Freeze-GD2', 			color: 'browngray', 		density: [250, 275, 300, 325, 350, 375, 400], 										disabled: false },
+			{ name: 'SERVIBOARD GD-2', 			color: 'browngray', 		density: [280, 300, 320, 350, 380, 400], 											disabled: false },
+			{ name: 'UMKA COLOR GD-2', 			color: 'browngray', 		density: [230, 250, 280, 300, 320, 350, 400, 450, 500, 550], 						disabled: false },
+			{ name: 'НЕВА', 					color: 'browngray', 		density: [220, 240, 280, 300, 320, 350, 390, 420, 450, 480], 						disabled: false },
+			{ name: 'Hansol Paper Co Ltd', 		color: 'browngray', 		density: [180, 200, 220, 230, 240, 250, 260, 280, 300, 330, 350, 400, 450, 500], 	disabled: false },
+			{ name: 'Ecoprint-GT3', 			color: 'white', 			density: [220, 230, 250, 280, 300, 320, 350, 380, 400, 420, 450], 					disabled: false },
+			{ name: 'Multicolor Belvedere-GT2', color: 'white', 			density: [230, 250, 280, 300, 320, 350, 380, 400, 420, 450], 						disabled: false },
+			{ name: 'Topcolor-GT1', 			color: 'white', 			density: [250, 280, 300, 320], 														disabled: false },
+			{ name: 'CONTIBOARD GT-1', 			color: 'white', 			density: [210, 230, 250, 275, 300, 320, 350, 400], 									disabled: false },
+			{ name: 'Лайнер', 					color: 'brown', 			density: [], 																		disabled: true },
 		];
 
 		var boxConfig = {
@@ -263,6 +264,10 @@
 				setMaterialEmbossingBumpMap( false );
 				setMaterialEmbossingShininess( boxConfig.materials.bg.shininess );		
 			}
+			boxConfig.materials.alpha.needsUpdate = true;
+			boxConfig.materials.bg.needsUpdate = true;
+			boxConfig.materials.simple.needsUpdate = true;
+			boxConfig.materials.embossing.needsUpdate = true;			
 			targetRotation += Math.PI;			
 		}
 
@@ -271,6 +276,7 @@
 			$(this).empty().trigger("change");
 			paperConfig.map(function(item, key){
 				var option = new Option(item.name, key, false, false);
+				if( item.disabled ){ $(option).prop('disabled', true); }
 				$(this).append(option);
 			}.bind(this) );
 			$(this).trigger('change');
@@ -302,6 +308,7 @@
 		//Материал: Кашировка
 		$('#laminating').change(function(){
 			var isChecked = $(this).prop('checked');
+			$('#mark').val('0').trigger('change');
 			$('#mark').prop('disabled', isChecked);
 			$('#density').prop('disabled', isChecked);
 		});
@@ -346,7 +353,9 @@
 		});
 
 		//Сохранить параметры
-		$('#constructor_reset').click(function(){
+		$('#constructor_reset').click(function(evt){
+			evt.preventDefault();
+			$('#constructorForm').get(0).reset();
 			$('#mark').val('0').trigger('change');
 
 			$('#mark').prop('disabled', false);
