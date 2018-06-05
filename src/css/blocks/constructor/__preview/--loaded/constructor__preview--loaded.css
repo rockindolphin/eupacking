@@ -1,0 +1,18 @@
+
+.constructor__preview--loaded{
+	& .constructor__canvas{
+		& canvas{
+			opacity: 1;
+		}
+		& .btn{
+			opacity: 1;			
+		}
+	}
+	& .constructor__legend{
+		opacity: 1;
+	}
+	& .preloader{
+		display: none;
+	}
+}
+

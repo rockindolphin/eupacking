@@ -1,0 +1,11 @@
+
+.btn--next{
+	padding:  0;
+	width: 30px;
+	height: 30px;
+	background-color: var(--black);
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAS1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////+DmQsHAAAAGHRSTlMAAvr0NxDu19LPyL+1nk5CLRcKBqqpW1qsGHIwAAAAS0lEQVQY03WPNw4AIQwEMXA5B2D//1IkuinYziN5g2syR8XlwW2T5gHkHrWSxKDtBbmC9g/k9ErMyl4HQGkAL7/1TBnLYqzeH8f5FaLbAxN4baAvAAAAAElFTkSuQmCC');
+	background-position: center; 
+	background-repeat: no-repeat; 
+}
+

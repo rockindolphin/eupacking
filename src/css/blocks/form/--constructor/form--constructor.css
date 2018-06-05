@@ -31,6 +31,12 @@
 		font-weight: var(--fw-bold);
 	}
 	@media (--sm-viewport){
+		
+	}
+	@media (--md-viewport){
+		
+	}
+	@media (--lg-viewport){
 		margin-left: 0;
 		margin-right: 20px;
 		& .form__footer{
@@ -44,13 +50,7 @@
 				border-right: 2px solid;
 				border-color: var(--black);
 			}
-		}	
-	}
-	@media (--md-viewport){
-								
-	}
-	@media (--lg-viewport){
-										
+		}															
 	}	
 }
 

@@ -1,5 +1,18 @@
 
 .constructor__preview{
-
+	margin-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: flex-start;
+	@media (--sm-viewport){
+		
+	}
+	@media (--md-viewport){
+		
+	}
+	@media (--lg-viewport){
+		margin-bottom: 0;														
+	}
 }
 

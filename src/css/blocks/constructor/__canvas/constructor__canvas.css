@@ -1,5 +1,26 @@
 
 .constructor__canvas{
-
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: auto;
+	& canvas{
+		opacity: 0;
+		transition: opacity var(--anim-dur); 
+	}
+	& .btn{
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		opacity: 0;
+		transition: opacity var(--anim-dur); 
+		&.btn--prev{
+			left: 0;
+		}
+		&.btn--next{
+			right: 0;
+		}
+	}
 }
 

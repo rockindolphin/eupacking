@@ -39,7 +39,7 @@
 				gray: 0xcccccc,			
 				browngray: 0xdcd6d2,			
 			},
-			texturesPath: '/images/textures/',
+			texturesPath: 'images/textures/',
 			textures: {
 				bg: 				false,
 				bg_alpha: 			false,
@@ -182,9 +182,88 @@
 			boxConfig.materials.embossing.shininess = shininess;
 		}
 
-		//texture_shine
-		function setTextureShinine(shinine){
-			texture_shine = shinine;
+		function setBoxConfig(){
+			var data = getFormData();
+			//Кашировка
+			if( data.fields.laminating.value ){
+				setMaterialAlphaMap( boxConfig.textures.bg_laminating )
+				setMaterialAlphaColor( 'brown' );
+			}else{
+				setMaterialAlphaMap( false )
+				setMaterialAlphaColor( 'white' );
+			}
+			//Металлизированный картон
+			if( data.fields.metal_cardboard.value ){
+				setMaterialBgShininess( 120 );
+				setMaterialBgColor( 'gray' );
+			}else{
+				setMaterialBgShininess( 20 );
+				setMaterialBgColor( 'white' );			
+			}
+			//Вырубные окошки
+			if( data.fields.notch_windows.value ){
+				setMaterialBgMap( boxConfig.textures.bg_notch_windows );
+			}else{
+				setMaterialBgMap( boxConfig.textures.bg );
+			}
+			//Конгрев
+			if( data.fields.congreve.value ){
+				setMaterialBumpMap( boxConfig.textures.congreve );
+			}else{
+				setMaterialBumpMap( false );			
+			}
+			//Красочность: Полноцвет + pantone
+			if( data.fields.fullcolor_pantone.value ){
+				setMaterialEmbossingMap( boxConfig.textures.embossing );
+			}
+			//Красочность: Полноцвет
+			if( data.fields.fullcolor.value ){
+				setMaterialEmbossingMap( boxConfig.textures.embossing_bw );
+			}
+			//Красочность: Pantone
+			if( data.fields.pantone.value ){
+				setMaterialEmbossingMap( boxConfig.textures.embossing );
+			}
+			//Сплошной лак: Глянцевый
+			if( data.fields.solid_polish_glossy.value ){
+				setMaterialBgShininess( 500 );
+			}
+			//Сплошной лак: Матовый
+			if( data.fields.solid_polish_matt.value ){
+				setMaterialBgShininess( 50 );
+			}
+			//Сплошной лак: Нет
+			if( data.fields.solid_polish_no.value && !data.fields.metal_cardboard.value ){
+				setMaterialBgShininess( 20 );
+			}
+			//Выборочный лак: Глянцевый
+			if( data.fields.partial_polish_glossy.value ){
+				setMaterialShininess( 500 );
+				if( !data.fields.congreve.value ){
+					setMaterialBumpMap( boxConfig.textures.partial_polish );
+				}	
+			}
+			//Выборочный лак: Матовый
+			if( data.fields.partial_polish_matt.value ){
+				setMaterialShininess( 50 );
+				if( !data.fields.congreve.value ){
+					setMaterialBumpMap( boxConfig.textures.partial_polish );
+				}	
+			}
+			//Выборочный лак: Нет
+			if( data.fields.partial_polish_no.value ){
+				setMaterialShininess( boxConfig.materials.bg.shininess );
+			}
+			//Тиснение фольгой
+			if( data.fields.embossing.value ){
+				setMaterialEmbossingMap( boxConfig.textures.embossing_gold );
+				setMaterialEmbossingBumpMap( boxConfig.textures.embossing_map );
+				setMaterialEmbossingShininess( 1000 );
+			}else{
+				setMaterialEmbossingBumpMap( false );
+				setMaterialEmbossingShininess( boxConfig.materials.bg.shininess );		
+			}
+			targetRotation += Math.PI;			
 		}
 
 		//Материал: Марка
@@ -225,139 +304,36 @@
 			var isChecked = $(this).prop('checked');
 			$('#mark').prop('disabled', isChecked);
 			$('#density').prop('disabled', isChecked);
-			if( isChecked ){
-				setMaterialAlphaMap( boxConfig.textures.bg_laminating )
-				setMaterialAlphaColor( 'brown' );
-			}else{
-				setMaterialAlphaMap( false )
-				setMaterialAlphaColor( 'white' );
-			}
 		});
 
 		//Материал: Металлизированный картон
 		$('#metal_cardboard').change(function(){
 			var isChecked = $(this).prop('checked');
-			$('input[name=solid_polish]').prop('disabled', isChecked);
-			if( isChecked ){
-				setMaterialBgShininess( 120 );
-				setMaterialBgColor( 'gray' );
-			}else{
-				setMaterialBgShininess( 20 );
-				setMaterialBgColor( 'white' );			
-			}			
+			$('input[name=solid_polish]').prop('disabled', isChecked);		
 		});
 
-		//Красочность: Полноцвет + pantone
-		$('#fullcolor_pantone').change(function(){
-			var isChecked = $(this).prop('checked');
-			if( isChecked ){
-				setMaterialEmbossingMap( boxConfig.textures.embossing );
-			}			
-		});	
-
-		//Красочность: Полноцвет
-		$('#fullcolor').change(function(){
-			var isChecked = $(this).prop('checked');
-			if( isChecked ){
-				setMaterialEmbossingMap( boxConfig.textures.embossing_bw );
-			}			
-		});	
-
-		//Красочность: Pantone
-		$('#pantone').change(function(){
-			var isChecked = $(this).prop('checked');
-			if( isChecked ){
-				setMaterialEmbossingMap( boxConfig.textures.embossing );
-			}			
-		});
-
-		//Отделка: Тиснение фольгой
-		$('#embossing').change(function(){
-			var isChecked = $(this).prop('checked');
-			if( isChecked ){
-				setMaterialEmbossingMap( boxConfig.textures.embossing_gold );
-				setMaterialEmbossingBumpMap( boxConfig.textures.embossing_map );
-				setMaterialEmbossingShininess( 1000 );
-			}else{
-				setMaterialEmbossingBumpMap( false );
-				setMaterialEmbossingShininess( boxConfig.materials.bg.shininess )		
-			}			
-		});						
 		
-		//Отделка: Вырубные окошки
-		$('#notch_windows').change(function(){
-			var isChecked = $(this).prop('checked');
-			if( isChecked ){
-				setMaterialBgMap( boxConfig.textures.bg_notch_windows );
-			}else{
-				setMaterialBgMap( boxConfig.textures.bg );
-			}			
-		});
+		var boxUpdateControls = [
+			'laminating',				//Материал: Кашировка
+			'metal_cardboard',			//Материал: Металлизированный картон
+			'fullcolor_pantone',		//Красочность: Полноцвет + pantone
+			'fullcolor',				//Красочность: Полноцвет
+			'pantone',					//Красочность: Pantone
+			'embossing',				//Отделка: Тиснение фольгой
+			'notch_windows',			//Отделка: Вырубные окошки
+			'congreve',					//Отделка: Конгрев
+			'solid_polish_glossy',		//Сплошной лак: Глянцевый
+			'solid_polish_matt',		//Сплошной лак: Матовый
+			'solid_polish_no',			//Сплошной лак: Нет
+			'partial_polish_glossy',	//Выборочный лак: Глянцевый
+			'partial_polish_matt',		//Выборочный лак: Матовый
+			'partial_polish_no',		//Выборочный лак: Нет
+		];
 
-		//Отделка: Конгрев
-		$('#congreve').change(function(){
-			var isChecked = $(this).prop('checked');
-			if( isChecked ){
-				setMaterialBumpMap( boxConfig.textures.congreve );
-			}else{
-				setMaterialBumpMap( false );			
-			}			
-		});
-
-		//Сплошной лак: Глянцевый
-		$('#solid_polish_glossy').change(function(){
-			var isChecked = $(this).prop('checked');
-			if( isChecked ){
-				setMaterialBgShininess( 500 );
-			}			
-		});						
-		//Сплошной лак: Матовый
-		$('#solid_polish_matt').change(function(){
-			var isChecked = $(this).prop('checked');
-			if( isChecked ){
-				setMaterialBgShininess( 50 )
-			}			
-		});
-		//Сплошной лак: Нет
-		$('#solid_polish_no').change(function(){
-			var isChecked = $(this).prop('checked');
-			var isMetalChecked = $('#metal_cardboard').prop('checked');
-			if( isChecked && !isMetalChecked ){
-				setMaterialBgShininess( 20 );
-			}			
-		});		
-
-		//Выборочный лак: Глянцевый
-		$('#partial_polish_glossy').change(function(){
-			var isChecked = $(this).prop('checked');
-			var isCongreveChecked = $('#congreve').prop('checked');
-			if( isChecked ){
-				setMaterialShininess( 500 );
-			}			
-			if( !isCongreveChecked ){
-				setMaterialBumpMap( boxConfig.textures.partial_polish );
-			}			
-		});
-
-		//Выборочный лак: Матовый
-		$('#partial_polish_matt').change(function(){
-			var isChecked = $(this).prop('checked');
-			var isCongreveChecked = $('#congreve').prop('checked');
-			if( isChecked ){
-				setMaterialShininess( 50 );
-				setTextureShinine( 50 );
-			}			
-			if( !isCongreveChecked ){
-				setMaterialBumpMap( boxConfig.textures.partial_polish );
-			}			
-		});
-
-		//Выборочный лак: Нет
-		$('#partial_polish_no').change(function(){
-			var isChecked = $(this).prop('checked');
-			if( isChecked ){
-				setMaterialShininess( boxConfig.materials.bg.shininess );
-			}			
+		boxUpdateControls.map(function(control){
+			$(`#${control}`).change(function(){
+				setBoxConfig();
+			});
 		});											
 
 		//Отправить запрос
@@ -379,18 +355,22 @@
 			$('#glue_points').val('1').trigger('change');
 
 			setMaterialAlphaColor( 'white' );
+			setBoxConfig();
 		});
 
+
+		$("#stepLeft").on('click dblclick', function(){
+			targetRotation -= 0.5;
+		});
+
+		$("#stepRight").on('click dblclick', function(){
+			targetRotation += 0.5;
+		});
 
 		//WebGL
 		window.temp = true; //???
 
-		var shine = 0;
-		var texture_shine = 0;
-		var tesnenie_shine = 0;
-
 		var spin = 'left';
-		var controls, container;
 		var targetRotation = 0.5;
 		var targetRotationOnMouseDown = 0;
 
@@ -409,7 +389,7 @@
 		renderer.setSize(640, 700);
 		renderer.setClearColor(boxConfig.colors.white, 0);
 		renderer.shadowMap.enabled = true;
-		container = document.getElementById('constructor__canvas');
+		var container = document.getElementById('constructor__canvas');
 		container.appendChild(renderer.domElement);			
 
 		// camera
@@ -421,8 +401,14 @@
 
 		//textures
 		var loader = new THREE.TextureLoader();
+		var loadedCount = 0;
 		$.map(boxConfig.textures, function(value, key){
-			boxConfig.textures[key] = loader.load(boxConfig.texturesPath + key+'.png');
+			boxConfig.textures[key] = loader.load(boxConfig.texturesPath + key+'.png', function(){
+				loadedCount++;
+				if( Object.keys(boxConfig.textures).length-1 === loadedCount ){
+					$('.constructor__preview').addClass('constructor__preview--loaded');
+				}
+			});
 		});
 
 		//create materials
@@ -589,15 +575,17 @@
 
 		}
 
+		$(window).on('resize', function(){
+			requestAnimationFrame(function(){
+				onWindowResize();
+			});
+		});
+		onWindowResize();
 
 		function onWindowResize() {
-			windowHalfX = window.innerWidth / 2;
-			windowHalfY = window.innerHeight / 2;
-
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
-
-			renderer.setSize( window.innerWidth, window.innerHeight );
+			var size = renderer.getSize();
+			var width = $(renderer.domElement).outerWidth();
+			$(renderer.domElement).height( width*(size.height/size.width) );
 		}
 
 		function onDocumentMouseDown( event ) {

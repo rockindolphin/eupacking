@@ -2,6 +2,7 @@
 .constructor__wrapper{
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	& .constructor__preview{
 		order: 1;
 	}
@@ -12,16 +13,16 @@
 			
 	}
 	@media (--md-viewport){
+		
+	}
+	@media (--lg-viewport){
 		flex-direction: row;
 		& .constructor__preview{
 			order: 0;
 		}
 		& .form--constructor{
 			order: 0;
-		}							
-	}
-	@media (--lg-viewport){
-										
+		}															
 	}	
 }
 
