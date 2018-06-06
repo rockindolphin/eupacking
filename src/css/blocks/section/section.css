@@ -2,7 +2,7 @@
 .section{
 	width: 100%;
 	padding-top: 30px;
-	padding-bottom: 10px;
+	padding-bottom: 30px;
 	& img[data-bg]{
 		display: none;
 	}

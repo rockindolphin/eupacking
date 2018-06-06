@@ -155,6 +155,7 @@
 		$('select.select2').each(function(){
 			$(this).select2({
 				minimumResultsForSearch: -1,
+				language: 'ru',
 			})
 			.on('select2:open', function(){
 				var s2 = $(this).data().select2;
@@ -164,8 +165,8 @@
 			var classList = [].filter.call(this.classList, function(item){
 				return ( item !== 'select2' && item !== 'select2-hidden-accessible' );
 			});
-			var container = $(this).data().select2.$container;
-			$(container).addClass( classList.join(' ') );			
+			$(this).data().select2.$container.addClass( classList.join(' ') );			
+			$(this).data().select2.$dropdown.addClass( classList.join(' ') );			
 		});
 
 		//custom number

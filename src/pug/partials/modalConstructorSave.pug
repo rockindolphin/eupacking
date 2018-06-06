@@ -1,0 +1,12 @@
+#modalConstructorSave.modal.modal--constructor
+	.modal__dialog.container
+		button.btn.btn--close.form__close(data-toggle="modal", data-target="modalConstructorSave")
+		.row
+			.col-12.col-sm-8
+				table#constructorTableSave.mb-3.mb-sm-0
+			.col-12.col-sm-4
+				form(action="#", method="POST")
+					.row.form__row
+						.col-12
+							input#saveCSVContent.d-none(type="hidden", name="box")
+							input#saveCSV.btn.btn--green(type="submit", value="Сохранить")
