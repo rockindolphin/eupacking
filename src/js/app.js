@@ -110,29 +110,51 @@
 
 
 		//gallery
+		function scrollToLast(){
+			$('html, body').scrollTop(lastScrollTop);
+			$('.page__body').css({
+				top: 0
+			});
+		}
+
+		function replaceLightboxPreloader(){
+			var $lb = $('#lightbox');
+			if( !$lb.data('preloader') ){
+				var $loader = $lb.find('.lb-loader');
+				$loader.html('<div class="preloader preloader--dark"><div></div><div></div><div></div><div></div></div>');
+			}
+			$lb.data('preloader', true);
+		}		
+
 		lightbox.option({
 			albumLabel: '',
 			disableScrolling: true
 		});
 
 		var lastScrollTop = 0;
+
 		$('[data-lightbox]').click(function(evt){
+			replaceLightboxPreloader();
 			lastScrollTop = window.pageYOffset;
+			$('.page__body').css({
+				top: -window.pageYOffset,
+			});
 		});
-		function scrollToLast(){
-			$('html, body').scrollTop(lastScrollTop);
-		}
+
 		$('.lb-close').click(function(){
 			scrollToLast();
 		});
+
 		$('.lightboxOverlay').click(function(){
 			scrollToLast();
 		});
+
 		$('.lightbox').click(function(evt){
 			if( evt.target == this ){
 				scrollToLast();			
 			}
 		});
+
 		$('.lb-container').click(function(evt){
 			if( evt.target === this ){//click on close
 				$(this).closest('.lightbox').find('.lb-close').click();
@@ -216,6 +238,7 @@
 			});
 		});
 
+		//global variables
 		window.eupacking = {};
 		window.eupacking.toggleModal = toggleModal;
 
