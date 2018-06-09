@@ -450,13 +450,6 @@
 
 		var spin = 'left';
 		var targetRotation = 0.5;
-		var targetRotationOnMouseDown = 0;
-
-		var mouseX = 0;
-		var mouseXOnMouseDown = 0;
-
-		var windowHalfX = window.innerWidth / 2;
-		var windowHalfY = window.innerHeight / 2;
 
 		// revolutions per second
 		var angularSpeed = 0.2; 
@@ -617,9 +610,9 @@
 		spotLight2.shadowMapHeight = 1024;
 		scene.add( spotLight2 ); 
 
-		document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+		/*document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 		document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-		document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+		document.addEventListener( 'touchmove', onDocumentTouchMove, false );*/
 
 		// start animation
 		targetRotation = cube.rotation.y;
@@ -653,12 +646,7 @@
 
 		}
 
-		$(window).on('resize', function(){
-			requestAnimationFrame(function(){
-				onWindowResize();
-			});
-		});
-		onWindowResize();
+
 
 		function onWindowResize() {
 			var size = renderer.getSize();
@@ -666,57 +654,36 @@
 			$(renderer.domElement).height( width*(size.height/size.width) );
 		}
 
-		function onDocumentMouseDown( event ) {
-			$("#constructor__canvas").mouseover(function(){
-				event.preventDefault();     
-			});  
+		$(window).on('resize', function(){
+			requestAnimationFrame(function(){
+				onWindowResize();
+			});
+		});
+		onWindowResize();
 
-			document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-			document.addEventListener( 'mouseup', onDocumentMouseUp, false );
-			document.addEventListener( 'mouseout', onDocumentMouseOut, false );
 
-			mouseXOnMouseDown = event.clientX - windowHalfX;
+		var mouseDownCanvas = false;
+		var mouseDownX = 0;
+		var mouseCurrentX = 0;
+		var targetRotationOnMouseDown = 0;
+		var windowHalfX = window.innerWidth / 2;	
+
+		$(renderer.domElement).on('mousedown touchstart', function(evt){
+			mouseDownCanvas = true;
+			mouseDownX = (evt.clientX || evt.touches[0].clientX) - windowHalfX;
 			targetRotationOnMouseDown = targetRotation;
-		}
+		});
 
-		function onDocumentMouseMove( event ) {
-			mouseX = event.clientX - windowHalfX;
-			targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.02;
-		}
+		$(renderer.domElement).on('mouseup mouseout touchstop', function(evt){
+			mouseDownCanvas = false;
+		});
 
-		function onDocumentMouseUp( event ) {
-			document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
-			document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
-			document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
-		}
-
-		function onDocumentMouseOut( event ) {
-			document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
-			document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
-			document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
-		}
-
-		function onDocumentTouchStart( event ) {
-			if ( event.touches.length === 1 ) {
-				$("#constructor__canvas").mouseover(function(){
-					event.preventDefault();     
-				});
-
-				mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
-				targetRotationOnMouseDown = targetRotation;
+		$(renderer.domElement).on('mousemove touchmove', function(evt){
+			if( mouseDownCanvas ){
+				mouseCurrentX = (evt.clientX || evt.touches[0].clientX)  - windowHalfX;
+				targetRotation = targetRotationOnMouseDown + ( mouseCurrentX - mouseDownX ) * 0.02;
 			}
-		}
-
-		function onDocumentTouchMove( event ) {
-			if ( event.touches.length === 1 ) {
-				$("#constructor__canvas").mouseover(function(){
-					event.preventDefault();     
-				});
-				mouseX = event.touches[ 0 ].pageX - windowHalfX;
-				targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.05;
-			}
-		}
-
+		});
 
 	});	
 })(jQuery);		
