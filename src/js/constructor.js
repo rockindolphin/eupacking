@@ -411,15 +411,9 @@
 			var data = getFormData();
 			var tableHtml = generateTable( data );
 			$('#constructorTableSave').html( tableHtml );
+			$('#saveCSVContent').val( `<table>${tableHtml}</table>` );
 			eupacking.toggleModal( 'modalConstructorSave' );
 		});
-
-		$('#saveCSV').click(function(evt){
-			evt.preventDefault();
-			var data = getFormData();
-			$('#saveCSVContent').val( `<table>${generateTable(data)}</table>` );
-			$(this).closest('form').submit();	
-		});		
 
 		//Сброс
 		$('#constructor_reset').click(function(evt){
